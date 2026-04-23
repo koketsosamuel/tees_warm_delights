@@ -1,0 +1,1174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tee's Warm Delights — Freshly baked, made with love</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1a1f4d;
+    --navy-ink:#141837;
+    --olive:#9a9646;
+    --olive-deep:#7a7835;
+    --blush:#fce8e8;
+    --blush-deep:#f6d8d8;
+    --cream:#faf3e8;
+    --cream-warm:#f3ead8;
+    --paper:#fdfaf4;
+    --ink:#2a1810;
+    --ink-soft:#574a3f;
+    --line:rgba(26,31,77,.14);
+    --line-soft:rgba(26,31,77,.08);
+    --shadow-sm: 0 1px 2px rgba(26,31,77,.06), 0 2px 8px rgba(26,31,77,.04);
+    --shadow-md: 0 8px 24px rgba(26,31,77,.10), 0 2px 6px rgba(26,31,77,.05);
+    --shadow-lg: 0 24px 60px rgba(26,31,77,.18), 0 4px 14px rgba(26,31,77,.08);
+    --radius: 4px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+  .script{font-family:'Dancing Script',cursive;font-weight:600;color:var(--navy);letter-spacing:.01em}
+  .serif{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:-.01em;line-height:1.08}
+  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--olive-deep);font-weight:600}
+
+  /* NAV */
+  nav.top{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,250,244,.86);
+    backdrop-filter:saturate(160%) blur(14px);
+    -webkit-backdrop-filter:saturate(160%) blur(14px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  nav.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;gap:24px}
+  .burger{display:none;width:52px;height:52px;border-radius:999px;border:1px solid var(--line);align-items:center;justify-content:center;background:#fff;position:fixed;right:18px;bottom:84px;z-index:56;box-shadow:0 10px 24px rgba(26,31,77,.18);transition:transform .2s}
+  .burger:hover{transform:scale(1.05)}
+  .burger span{display:block;width:18px;height:1.5px;background:var(--navy);position:relative}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--navy);transition:transform .25s}
+  .burger span::before{top:-6px}
+  .burger span::after{top:6px}
+  .burger.on span{background:transparent}
+  .burger.on span::before{transform:translateY(6px) rotate(45deg)}
+  .burger.on span::after{transform:translateY(-6px) rotate(-45deg)}
+  .mobile-menu{position:fixed;left:50%;bottom:88px;transform:translateX(-50%) translateY(16px) scale(.96);transform-origin:bottom center;z-index:55;width:min(88vw,320px);background:rgba(253,250,244,.92);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 60px rgba(26,31,77,.22),0 4px 14px rgba(26,31,77,.08);padding:10px;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1.1);display:flex;flex-direction:column;gap:2px}
+  .mobile-menu.on{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) scale(1)}
+  .mobile-menu a{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-radius:14px;font-family:'DM Serif Display',serif;font-size:18px;color:var(--navy);transition:background .15s}
+  .mobile-menu a:hover,.mobile-menu a:active{background:var(--cream-warm)}
+  .mobile-menu a::after{content:"→";font-family:'Inter',sans-serif;font-size:14px;color:var(--olive);opacity:.5}
+  .mobile-menu .sep{height:1px;background:var(--line-soft);margin:6px 10px}
+  .mobile-menu .ctas{display:flex;gap:8px;padding:4px}
+  .mobile-menu .ctas .btn{flex:1;padding:11px 12px;font-size:12px;justify-content:center}
+  .mobile-menu::after{content:"";position:absolute;left:50%;bottom:-7px;width:14px;height:14px;background:inherit;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:translateX(-50%) rotate(45deg);border-radius:0 0 3px 0}
+  .menu-scrim{position:fixed;inset:0;background:rgba(20,24,55,.22);backdrop-filter:blur(2px);z-index:54;opacity:0;pointer-events:none;transition:opacity .2s}
+  .menu-scrim.on{opacity:1;pointer-events:auto}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:44px;height:44px;border-radius:50%;background:var(--blush);display:grid;place-items:center;overflow:hidden;flex:none}
+  .brand .mark img{width:100%;height:100%;object-fit:cover}
+  .brand .wm{display:flex;flex-direction:column;line-height:1}
+  .brand .wm .s{font-family:'Dancing Script',cursive;font-weight:700;color:var(--navy);font-size:22px;margin-bottom:2px}
+  .brand .wm .d{font-size:10px;letter-spacing:.32em;color:var(--olive-deep);font-weight:600}
+  nav .links{display:flex;gap:28px;align-items:center}
+  nav .links a{font-size:14px;color:var(--navy-ink);font-weight:500;position:relative;padding:6px 2px;transition:color .2s}
+  nav .links a:hover{color:var(--olive-deep)}
+  nav .links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--olive);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  nav .links a:hover::after{transform:scaleX(1)}
+  nav .cta-pair{display:flex;gap:10px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 18px;font-size:13px;font-weight:600;
+    border-radius:999px;transition:all .2s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-ink);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--navy)}
+  .btn-ghost:hover{background:var(--navy);color:#fff}
+  .btn-olive{background:var(--olive);color:#fff}
+  .btn-olive:hover{background:var(--olive-deep);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn-lg{padding:15px 26px;font-size:14px}
+  .wa-ico{width:14px;height:14px;flex:none}
+
+  /* HERO */
+  .hero{position:relative;padding:56px 0 88px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 85% 20%, var(--blush) 0%, transparent 55%),
+      radial-gradient(ellipse at 5% 90%, var(--cream-warm) 0%, transparent 60%),
+      var(--paper);
+    z-index:-1;
+  }
+  .hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+  .hero h1{font-size:clamp(48px,6.8vw,92px);color:var(--navy);margin:20px 0 8px}
+  .hero h1 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive-deep);font-size:1.05em;font-weight:600}
+  .hero .tag{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);font-weight:500;background:rgba(255,255,255,.6)}
+  .hero .tag .dot{width:6px;height:6px;border-radius:50%;background:var(--olive)}
+  .hero .lede{font-size:18px;color:var(--ink-soft);max-width:48ch;margin:22px 0 32px;line-height:1.6}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .hero .meta{display:flex;gap:28px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line-soft)}
+  .hero .meta .mi{display:flex;flex-direction:column;gap:2px}
+  .hero .meta .mi .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-deep);font-weight:600}
+  .hero .meta .mi .v{font-size:14px;color:var(--navy);font-weight:500}
+
+  /* hero image mosaic */
+  .hero .stack{position:relative;aspect-ratio:1/1.05}
+  .hero .stack .a,.hero .stack .b,.hero .stack .c{
+    position:absolute;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-lg);
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .hero .stack .a{left:0;top:6%;width:62%;aspect-ratio:3/4;z-index:3;transform:rotate(-2deg)}
+  .hero .stack .b{right:0;top:0;width:52%;aspect-ratio:1/1.15;z-index:2;transform:rotate(2.5deg)}
+  .hero .stack .c{right:8%;bottom:0;width:46%;aspect-ratio:1/1;z-index:4;transform:rotate(-3deg)}
+  .hero .stack img{width:100%;height:100%;object-fit:cover}
+  .hero .stack .a:hover{transform:rotate(0deg) scale(1.02);z-index:5}
+  .hero .stack .b:hover{transform:rotate(0deg) scale(1.02);z-index:5}
+  .hero .stack .c:hover{transform:rotate(0deg) scale(1.02);z-index:5}
+  .hero .stamp{
+    position:absolute;right:-6%;top:38%;width:130px;height:130px;
+    border-radius:50%;background:var(--navy);color:var(--cream);
+    display:grid;place-items:center;z-index:6;
+    box-shadow:var(--shadow-lg);
+    animation:spin 22s linear infinite;
+  }
+  .hero .stamp svg{width:100%;height:100%}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hero .stamp .ctr{position:absolute;inset:0;display:grid;place-items:center;animation:spin 22s linear infinite reverse}
+  .hero .stamp .ctr span{font-family:'Dancing Script',cursive;font-size:26px;color:var(--olive);font-weight:600;line-height:1}
+
+  /* Ticker */
+  .ticker{background:var(--navy);color:var(--cream);padding:18px 0;overflow:hidden;border-top:1px solid var(--olive);border-bottom:1px solid var(--olive)}
+  .ticker-track{display:flex;gap:64px;white-space:nowrap;animation:slide 38s linear infinite;font-family:'DM Serif Display',serif;font-size:22px;font-style:italic}
+  .ticker-track span{display:inline-flex;align-items:center;gap:64px}
+  .ticker-track .dot{color:var(--olive);font-style:normal}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* SECTION headers */
+  section{padding:96px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:48px}
+  .sec-head .lt{max-width:640px}
+  .sec-head h2{font-size:clamp(38px,4.4vw,60px);color:var(--navy);margin-top:10px}
+  .sec-head h2 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive-deep)}
+  .sec-head p{color:var(--ink-soft);margin-top:14px;max-width:52ch;font-size:16px}
+
+  /* STORY */
+  .story{background:var(--cream);position:relative}
+  .story .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center}
+  .story .imgwrap{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md)}
+  .story .imgwrap img{width:100%;height:100%;object-fit:cover}
+  .story .imgwrap::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.5);pointer-events:none;border-radius:2px}
+  .story h2{font-size:clamp(38px,4.4vw,56px);color:var(--navy)}
+  .story h2 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive-deep)}
+  .story p{color:var(--ink-soft);margin-top:16px;font-size:17px;line-height:1.7;max-width:52ch}
+  .story .sig{font-family:'Dancing Script',cursive;font-size:44px;color:var(--navy);margin-top:28px;line-height:1}
+  .story .sig small{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--olive-deep);font-weight:600;margin-top:8px}
+  .story .badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+  .badge{padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13px;color:var(--navy);font-weight:500;display:inline-flex;align-items:center;gap:8px}
+  .badge .d{width:6px;height:6px;border-radius:50%;background:var(--olive)}
+
+  /* MENU */
+  .menu .cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--line-soft)}
+  .cat{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:500;color:var(--navy);transition:all .2s;letter-spacing:.02em}
+  .cat:hover{border-color:var(--olive);color:var(--olive-deep)}
+  .cat.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .cat .n{opacity:.6;margin-left:6px;font-size:11px}
+  .grid-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
+  .card{background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column;cursor:pointer}
+  .card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--line)}
+  .card .pic{aspect-ratio:4/5;overflow:hidden;background:var(--cream)}
+  .card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .card:hover .pic img{transform:scale(1.05)}
+  .card .body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card .cat-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-deep);font-weight:600}
+  .card .name{font-family:'DM Serif Display',serif;font-size:22px;color:var(--navy);line-height:1.15;margin-top:4px}
+  .card .desc{font-size:14px;color:var(--ink-soft);line-height:1.5;margin-top:6px;flex:1}
+  .card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line-soft)}
+  .card .order{font-size:12px;font-weight:600;color:var(--olive-deep);letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px}
+  .card .order::after{content:"→";transition:transform .2s}
+  .card:hover .order::after{transform:translateX(4px)}
+  .card .avail{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);display:inline-flex;align-items:center;gap:6px}
+  .card .avail::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--olive)}
+
+  /* Mosaic gallery */
+  .gallery{background:var(--navy);color:var(--cream);padding:110px 0}
+  .gallery .sec-head h2{color:var(--cream)}
+  .gallery .sec-head h2 em{color:var(--olive)}
+  .gallery .sec-head p{color:rgba(250,243,232,.72)}
+  .gallery .eyebrow{color:var(--olive)}
+  .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:14px}
+  .mosaic .tile{overflow:hidden;border-radius:var(--radius);position:relative}
+  .mosaic .tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .mosaic .tile:hover img{transform:scale(1.06)}
+  .mosaic .tile:nth-child(1){grid-row:span 2}
+  .mosaic .tile:nth-child(4){grid-row:span 2}
+  .mosaic .tile:nth-child(6){grid-column:span 2}
+
+  /* Featured banner */
+  .feature{background:var(--cream-warm);padding:88px 0}
+  .feature .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md)}
+  .feature .imgwrap{aspect-ratio:4/3;overflow:hidden}
+  .feature .imgwrap img{width:100%;height:100%;object-fit:cover}
+  .feature .txt{padding:48px 56px 48px 0}
+  .feature h3{font-family:'DM Serif Display',serif;font-size:42px;color:var(--navy);line-height:1.1;margin:12px 0 16px}
+  .feature h3 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive-deep)}
+  .feature p{color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:44ch;margin-bottom:24px}
+
+  /* HOW TO ORDER */
+  .how .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:16px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .step{padding:40px 28px 40px 0;border-right:1px solid var(--line-soft);position:relative}
+  .step:last-child{border-right:none}
+  .step .n{font-family:'DM Serif Display',serif;font-size:48px;color:var(--olive);line-height:1}
+  .step h4{font-family:'DM Serif Display',serif;font-size:22px;color:var(--navy);margin:16px 0 8px}
+  .step p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+
+  /* TESTIMONIALS */
+  .love{background:var(--blush)}
+  .love-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .quote{background:#fff;padding:32px 32px 28px;border-radius:var(--radius);position:relative;box-shadow:var(--shadow-sm)}
+  .quote::before{content:"“";position:absolute;top:4px;left:20px;font-family:'DM Serif Display',serif;font-size:88px;color:var(--olive);line-height:1;opacity:.25}
+  .quote .t{font-family:'DM Serif Display',serif;font-style:italic;font-size:19px;color:var(--navy);line-height:1.45;position:relative;z-index:1}
+  .quote .by{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft)}
+  .quote .av{width:40px;height:40px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-family:'DM Serif Display',serif;color:var(--navy);font-size:17px}
+  .quote .nm{font-size:13px;font-weight:600;color:var(--navy)}
+  .quote .lo{font-size:11px;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+
+  /* FAQ */
+  .faq-list{border-top:1px solid var(--line-soft)}
+  .faq-item{border-bottom:1px solid var(--line-soft)}
+  .faq-item summary{list-style:none;padding:28px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;font-family:'DM Serif Display',serif;font-size:22px;color:var(--navy);transition:color .2s}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-size:28px;color:var(--olive);transition:transform .3s;font-family:'Inter',sans-serif;font-weight:300}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:var(--olive-deep)}
+  .faq-item .a{padding:0 60px 28px 0;color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:72ch}
+
+  /* CONTACT */
+  .contact{background:var(--cream);padding:110px 0}
+  .contact .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px}
+  .contact h2{font-size:clamp(40px,4.6vw,62px);color:var(--navy)}
+  .contact h2 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive-deep)}
+  .contact .lede{color:var(--ink-soft);font-size:17px;line-height:1.65;margin:18px 0 36px;max-width:42ch}
+  .channels{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+  .chan{display:flex;align-items:center;gap:18px;padding:20px 22px;background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);transition:all .25s;text-decoration:none;color:inherit}
+  .chan:hover{border-color:var(--olive);transform:translateX(4px);box-shadow:var(--shadow-sm)}
+  .chan .ic{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--cream-warm);color:var(--navy)}
+  .chan .ic svg{width:22px;height:22px}
+  .chan.wa .ic{background:#25d366;color:#fff}
+  .chan.call .ic{background:var(--navy);color:#fff}
+  .chan .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-deep);font-weight:600}
+  .chan .v{font-family:'DM Serif Display',serif;font-size:22px;color:var(--navy);line-height:1.15;margin-top:2px}
+  .chan .arr{margin-left:auto;font-size:20px;color:var(--olive);transition:transform .25s}
+  .chan:hover .arr{transform:translateX(4px)}
+
+  .hours{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;padding:22px 24px;background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);font-size:13px}
+  .hours .d{color:var(--navy-ink);font-weight:500}
+  .hours .h{color:var(--ink-soft);text-align:right;font-variant-numeric:tabular-nums}
+  .hours .title{grid-column:span 2;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-deep);font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--line-soft);margin-bottom:4px}
+
+  form{background:#fff;padding:40px;border-radius:var(--radius);border:1px solid var(--line-soft);box-shadow:var(--shadow-md)}
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+  .field label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-deep);font-weight:600}
+  .field input,.field select,.field textarea{
+    font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);
+    transition:border-color .2s,background .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy);background:#fff}
+  .field textarea{min-height:120px;resize:vertical;line-height:1.5}
+  form .submit{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:6px}
+  form .submit small{font-size:12px;color:var(--ink-soft);max-width:28ch;line-height:1.45}
+  .form-title{font-family:'DM Serif Display',serif;font-size:26px;color:var(--navy);margin-bottom:6px}
+  .form-sub{font-size:14px;color:var(--ink-soft);margin-bottom:28px}
+  #toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:var(--cream);padding:14px 22px;border-radius:999px;font-size:14px;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:all .3s;z-index:100}
+  #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:var(--cream);padding:72px 0 28px}
+  footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(250,243,232,.15)}
+  footer h5{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);margin-bottom:18px;font-weight:600}
+  footer a{display:block;font-size:14px;color:rgba(250,243,232,.75);padding:5px 0;transition:color .2s}
+  footer a:hover{color:var(--olive)}
+  footer .lead{font-family:'DM Serif Display',serif;font-size:22px;line-height:1.35;color:var(--cream);margin-top:14px;max-width:30ch;font-style:italic}
+  footer .fbrand{display:flex;align-items:center;gap:12px}
+  footer .fbrand .mark{background:var(--blush)}
+  footer .fbrand .wm .s{color:var(--cream)}
+  footer .bot{display:flex;justify-content:space-between;padding-top:22px;font-size:12px;color:rgba(250,243,232,.5);letter-spacing:.04em}
+
+  /* Floating WA */
+  .float-wa{position:fixed;right:22px;bottom:22px;z-index:40;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,.5);transition:transform .2s}
+  .float-wa:hover{transform:scale(1.08)}
+  .float-wa svg{width:30px;height:30px}
+
+  /* Tweaks panel */
+  #tweaks{position:fixed;right:22px;top:90px;z-index:60;width:280px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow-lg);padding:20px;display:none;font-size:13px}
+  #tweaks.on{display:block}
+  #tweaks h6{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--olive-deep);font-weight:600;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+  #tweaks .tw{margin-bottom:14px}
+  #tweaks label{display:block;font-size:11px;color:var(--ink-soft);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase}
+  #tweaks select,#tweaks input[type=color]{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:4px;font:inherit;background:var(--paper)}
+  #tweaks .swatches{display:flex;gap:8px}
+  #tweaks .sw{flex:1;height:32px;border-radius:4px;border:2px solid transparent;cursor:pointer;transition:all .15s}
+  #tweaks .sw.on{border-color:var(--navy);transform:scale(1.05)}
+
+  @media (max-width:1000px){
+    .hero .grid,.story .grid,.feature .grid,.contact .grid{grid-template-columns:1fr;gap:48px}
+    .grid-menu{grid-template-columns:repeat(2,1fr)}
+    .how .steps{grid-template-columns:repeat(2,1fr);}
+    .step{border-right:none;border-bottom:1px solid var(--line-soft);padding:32px 0}
+    .step:last-child{border-bottom:none}
+    .love-grid{grid-template-columns:1fr}
+    footer .grid{grid-template-columns:1fr 1fr;gap:32px}
+    .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    nav .links{display:none}
+    .burger{display:flex}
+    .hide-mobile{display:none !important}
+    nav.top .cta-pair{display:none}
+    .feature .txt{padding:32px 28px}
+    .hero .stamp{width:100px;height:100px;right:2%;top:42%}
+    .hero .stamp .ctr span{font-size:20px}
+    .sec-head{flex-direction:column;align-items:flex-start;gap:20px}
+    .hero{padding:32px 0 56px}
+    .hero h1{font-size:clamp(40px,9vw,68px)}
+    section{padding:72px 0}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 18px}
+    .grid-menu{grid-template-columns:1fr;gap:20px}
+    .hours{grid-template-columns:1fr 1fr;padding:18px 18px}
+    form{padding:24px 18px}
+    form .row{grid-template-columns:1fr;gap:0}
+    section{padding:60px 0}
+    .hero{padding:24px 0 48px}
+    .hero h1{font-size:clamp(38px,10vw,60px);line-height:1.02}
+    .hero .lede{font-size:16px;margin:18px 0 24px}
+    .hero .meta{flex-wrap:wrap;gap:16px 24px;margin-top:28px;padding-top:22px}
+    .hero .ctas{flex-direction:column;align-items:stretch}
+    .hero .ctas .btn{justify-content:center}
+    .btn-lg{padding:14px 22px;font-size:14px}
+    .hero .stack{aspect-ratio:1/1.15}
+    .hero .stamp{width:84px;height:84px;top:48%}
+    .hero .stamp .ctr span{font-size:17px}
+    .sec-head{margin-bottom:32px}
+    .sec-head h2{font-size:34px}
+    .story .imgwrap{aspect-ratio:4/4.5}
+    .feature{padding:56px 0}
+    .feature .grid{grid-template-columns:1fr}
+    .feature .imgwrap{aspect-ratio:16/11}
+    .feature .txt{padding:28px 22px 32px}
+    .feature h3{font-size:30px}
+    .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:140px;gap:10px}
+    .mosaic .tile:nth-child(1),.mosaic .tile:nth-child(4){grid-row:span 1}
+    .mosaic .tile:nth-child(6){grid-column:span 1}
+    .cats{gap:6px;overflow-x:auto;flex-wrap:nowrap;padding-bottom:16px;scrollbar-width:none;margin-left:-18px;margin-right:-18px;padding-left:18px;padding-right:18px}
+    .cats::-webkit-scrollbar{display:none}
+    .cat{white-space:nowrap;flex:none;padding:9px 14px;font-size:12px}
+    .card .pic{aspect-ratio:1/1}
+    .card .name{font-size:20px}
+    .card .body{padding:18px 18px 20px}
+    .faq-item summary{font-size:18px;padding:22px 0;gap:16px}
+    .faq-item .a{padding:0 0 22px 0;font-size:15px}
+    .contact{padding:72px 0}
+    .chan{padding:16px 18px;gap:14px}
+    .chan .ic{width:42px;height:42px}
+    .chan .v{font-size:18px}
+    .form-title{font-size:22px}
+    .channels{gap:10px}
+    .brand .wm .s{font-size:19px}
+    .brand .wm .d{font-size:9px;letter-spacing:.28em}
+    .brand .mark{width:38px;height:38px}
+    nav.top .wrap{gap:12px;padding-top:12px;padding-bottom:12px}
+    .ticker-track{font-size:17px;gap:40px}
+    .ticker-track span{gap:40px}
+    .float-wa{width:52px;height:52px;right:16px;bottom:16px}
+    .float-wa svg{width:26px;height:26px}
+    footer .grid{grid-template-columns:1fr;gap:28px;padding-bottom:32px}
+    footer .bot{flex-direction:column;gap:8px;text-align:center}
+    form .submit{flex-direction:column;align-items:stretch;gap:14px}
+    form .submit .btn{justify-content:center}
+    #tweaks{right:12px;left:12px;top:auto;bottom:12px;width:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Tee's Warm Delights">
+      <div class="mark"><img src="img/logo.jpg" alt=""></div>
+      <div class="wm"><div class="s">Tee's warm</div><div class="d">DELIGHTS</div></div>
+    </a>
+    <div class="links">
+      <a href="#story">Our story</a>
+      <a href="#menu">Menu</a>
+      <a href="#how">How to order</a>
+      <a href="#love">Love notes</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="cta-pair">
+      <a href="#contact" class="btn btn-ghost hide-mobile">Place an order</a>
+    </div>
+  </div>
+</nav>
+<button class="burger" id="burger" aria-label="Menu"><span></span></button>
+<div class="menu-scrim" id="menuScrim"></div>
+<div class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="#story">Our story</a>
+  <a href="#menu">Menu</a>
+  <a href="#how">How to order</a>
+  <a href="#love">Love notes</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <div class="sep"></div>
+  <div class="ctas">
+    <a class="btn btn-primary" href="https://wa.me/27678106965" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+27678106965">Call</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header id="top" class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="tag"><span class="dot"></span> Home-bakery · Made to order</span>
+      <h1>Freshly baked,<br><em>made with love.</em></h1>
+      <p class="lede">Scones still warm from the oven, buttery shortbreads, layer cakes, and biscuit platters — baked in small batches from our kitchen to your table. One call, one message, and it's on its way.</p>
+      <div class="ctas">
+        <a class="btn btn-primary btn-lg" href="https://wa.me/27678106965" target="_blank" rel="noopener">
+          <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.8 4.3 1.8.8 2.5.9 3.3.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18.3c-1.6 0-3-.4-4.3-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.3 8.3 0 1120.3 12 8.3 8.3 0 0112 20.3z"/></svg>
+          WhatsApp us
+        </a>
+        <a class="btn btn-ghost btn-lg" href="tel:+27678106965">Call 067 810 6965</a>
+      </div>
+      <div class="meta">
+        <div class="mi"><span class="k">Based in</span><span class="v">Johannesburg, SA</span></div>
+        <div class="mi"><span class="k">Lead time</span><span class="v">24–48 hours</span></div>
+        <div class="mi"><span class="k">Delivery</span><span class="v">Local & collection</span></div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="b"><img src="img/scones-hand.jpg" alt="Buttermilk scones"></div>
+      <div class="a"><img src="img/red-velvet-cake.jpg" alt="Red velvet cake"></div>
+      <div class="c"><img src="img/biscuit-platter-mixed.jpg" alt="Mixed biscuit platter"></div>
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <path id="arc" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"></path>
+          </defs>
+          <text fill="#faf3e8" font-family="Inter" font-size="14" letter-spacing="4" font-weight="600">
+            <textPath href="#arc">· BAKED FRESH DAILY · SINCE 2021 · BAKED FRESH DAILY · </textPath>
+          </text>
+        </svg>
+        <div class="ctr"><span>fresh</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Scones <span class="dot">✦</span> Cakes <span class="dot">✦</span> Biscuits <span class="dot">✦</span> Muffins <span class="dot">✦</span> Cookies <span class="dot">✦</span> Breads <span class="dot">✦</span> Platters <span class="dot">✦</span> Croissants <span class="dot">✦</span></span>
+    <span>Scones <span class="dot">✦</span> Cakes <span class="dot">✦</span> Biscuits <span class="dot">✦</span> Muffins <span class="dot">✦</span> Cookies <span class="dot">✦</span> Breads <span class="dot">✦</span> Platters <span class="dot">✦</span> Croissants <span class="dot">✦</span></span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story" class="story">
+  <div class="wrap grid">
+    <div class="imgwrap"><img src="img/heart-scones.jpg" alt="Heart-shaped scones"></div>
+    <div>
+      <span class="eyebrow">Our story</span>
+      <h2>A small kitchen with <em>big flavour.</em></h2>
+      <p>Tee's Warm Delights started the way most good things do — at home, at the kitchen table, with flour on the counter and someone asking for "just one more". Today we bake to order for birthdays, tea trays, office mornings, and the quiet moments in between.</p>
+      <p>Every scone is rolled by hand. Every cake is layered from scratch. Nothing sits on a shelf — we bake the day you collect, so every bite is still warm.</p>
+      <p class="sig">— Tee<small>Owner & head baker</small></p>
+      <div class="badges">
+        <span class="badge"><span class="d"></span> Small-batch</span>
+        <span class="badge"><span class="d"></span> Baked to order</span>
+        <span class="badge"><span class="d"></span> Halaal-friendly ingredients</span>
+        <span class="badge"><span class="d"></span> No preservatives</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">The menu</span>
+        <h2>What's in the <em>oven.</em></h2>
+        <p>A rotating range of warm favourites. Everything is made to order — see something you love? Send us a note on WhatsApp with what and when.</p>
+      </div>
+      <a href="#contact" class="btn btn-olive">Request a quote</a>
+    </div>
+
+    <div class="cats" role="tablist">
+      <button class="cat on" data-cat="all">All <span class="n">24</span></button>
+      <button class="cat" data-cat="scones">Scones <span class="n">4</span></button>
+      <button class="cat" data-cat="cakes">Cakes <span class="n">6</span></button>
+      <button class="cat" data-cat="cookies">Cookies <span class="n">5</span></button>
+      <button class="cat" data-cat="biscuits">Biscuits & Shortbread <span class="n">4</span></button>
+      <button class="cat" data-cat="muffins">Muffins & Loaves <span class="n">3</span></button>
+      <button class="cat" data-cat="breads">Breads & Pastries <span class="n">2</span></button>
+    </div>
+
+    <div class="grid-menu" id="menuGrid">
+      <!-- SCONES -->
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/scones-hand.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones</span>
+          <h3 class="name">Buttermilk Scones</h3>
+          <p class="desc">Tall, tender, golden-topped. Plain or cheesy — perfect with jam, cream, or a cup of tea.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/heart-scones.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones · Special</span>
+          <h3 class="name">Heart-shaped Scones</h3>
+          <p class="desc">Same buttery crumb, hand-cut into hearts. A lovely little touch for birthdays and anniversaries.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/poppyseed-scone.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones</span>
+          <h3 class="name">Lemon & Poppyseed Scones</h3>
+          <p class="desc">Bright and citrusy with a crisp, glossy top and a subtle crunch of poppy seeds throughout.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/seed-loaf.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones</span>
+          <h3 class="name">Mixed-Seed Scones</h3>
+          <p class="desc">A heartier take — flaxseed, sunflower, pumpkin. Savoury, wholesome, holds butter beautifully.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- CAKES -->
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/red-velvet-cake.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Red Velvet Cake</h3>
+          <p class="desc">Three-layer classic, piped cream-cheese frosting, velvety crumb all the way through.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/chocolate-cake-slice.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Chocolate Layer Cake</h3>
+          <p class="desc">Four deep-cocoa layers, silky chocolate buttercream, with a hidden caramel centre.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/pistachio-cake.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Pistachio Cream Cake</h3>
+          <p class="desc">Three sponge layers folded with whipped pistachio cream — delicate, nutty, a little fancy.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/carrot-bundt.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Carrot Bundt</h3>
+          <p class="desc">Warmly spiced, pecan-studded, crowned with cream-cheese glaze and toasted pecans.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/tiramisu-roll.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes · Roll</span>
+          <h3 class="name">Tiramisu Swiss Roll</h3>
+          <p class="desc">Coffee-soaked sponge, mascarpone cream, dusted generously with cocoa. Keeps beautifully.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/ferrero-swiss-roll.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes · Roll</span>
+          <h3 class="name">Chocolate Hazelnut Roll</h3>
+          <p class="desc">Dark chocolate sponge, whipped-cream centre, draped in ganache and finished with Ferrero.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- COOKIES -->
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/choc-chip-cookie.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Big Chocolate-Chip Cookies</h3>
+          <p class="desc">Palm-sized, soft centre, crisp edges. The kind you wait to cool and don't.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/smores-cookie.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">S'mores Cookies</h3>
+          <p class="desc">Chunks of chocolate, pillowy marshmallow, graham crumbs — toasted on top the way you'd want.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/ferrero-cookie.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Double-Choc Hazelnut</h3>
+          <p class="desc">A rich cocoa cookie drizzled with milk chocolate, crushed hazelnut, and a Ferrero in the centre.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/oat-sandwich.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Oat Choc Sandwich</h3>
+          <p class="desc">Two chewy oat cookies filled with melted milk chocolate. Dunks beautifully in coffee.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/ginger-biscuits.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Ginger Crinkle Cookies</h3>
+          <p class="desc">Chewy, spiced, sugar-crackled. Warms up a winter afternoon like almost nothing else.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- BISCUITS -->
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/biscuit-platter-mixed.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Platter</span>
+          <h3 class="name">Eid / Celebration Biscuit Platter</h3>
+          <p class="desc">Eight varieties — chocolate fingers, romany creams, jammies, shortbread, more — arranged to impress.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/shortbread-classic.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Shortbread</span>
+          <h3 class="name">Classic Shortbread</h3>
+          <p class="desc">Three-ingredient simplicity done right. Crumbly, buttery, stays fresh in the jar for a week.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/chocolate-rounds.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Biscuits</span>
+          <h3 class="name">Chocolate Fudge Rounds</h3>
+          <p class="desc">Piped cocoa shortbread with a smooth milk-chocolate centre. Small, neat, addictive.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/coconut-biscuits.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Biscuits</span>
+          <h3 class="name">Coconut Crunch</h3>
+          <p class="desc">Crackled-top coconut biscuits with a golden crumb. A cup of tea's best friend.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- MUFFINS & LOAVES -->
+      <article class="card" data-cat="muffins">
+        <div class="pic"><img src="img/blueberry-muffins.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Muffins</span>
+          <h3 class="name">Blueberry Muffins</h3>
+          <p class="desc">Jammy-burst tops, tender crumb, a hit of lemon zest. Best eaten the day they're baked.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="muffins">
+        <div class="pic"><img src="img/banana-bread.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Loaves</span>
+          <h3 class="name">Banana Bread</h3>
+          <p class="desc">Ripe-banana loaf, moist, lightly spiced. Slice thick, toast it, smear with butter.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="muffins">
+        <div class="pic"><img src="img/chocolate-loaf.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Loaves</span>
+          <h3 class="name">Double-Chocolate Loaf</h3>
+          <p class="desc">Dark cocoa crumb studded with chocolate chunks. Dense, fudgy, grown-up.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- BREADS -->
+      <article class="card" data-cat="breads">
+        <div class="pic"><img src="img/croissants.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Pastry</span>
+          <h3 class="name">Butter Croissants</h3>
+          <p class="desc">Thirty-six hours of folding, rolling, proving. Flaky, shatter-on-the-plate kind of flaky.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="breads">
+        <div class="pic"><img src="img/hotcross-buns.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Breads · Seasonal</span>
+          <h3 class="name">Hot-Cross Buns</h3>
+          <p class="desc">Spiced, raisin-studded, soft and pillowy. Easter tradition made a day early.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Featured -->
+<section class="feature">
+  <div class="wrap">
+    <div class="grid">
+      <div class="imgwrap"><img src="img/biscuit-box-assorted.jpg" alt="Assorted biscuit box"></div>
+      <div class="txt">
+        <span class="eyebrow">Bestseller</span>
+        <h3>The <em>Assorted Biscuit Box</em> — a little of everything.</h3>
+        <p>Our bestselling gift box. Eight varieties — chocolate fingers, jammies, shortbread squares, romany creams, coconut crunch, and more — arranged in a keepsake tray. Perfect for housewarmings, thank-yous, and tea with the in-laws.</p>
+        <a href="https://wa.me/27678106965?text=Hi%20Tee%2C%20I%27d%20like%20to%20order%20the%20Assorted%20Biscuit%20Box" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">The bake board</span>
+        <h2>Looks good. <em>Tastes better.</em></h2>
+        <p>A little peek into the kitchen. Follow along on Instagram @Tee'sWarmDelights for daily bakes, weekend specials, and behind-the-scenes.</p>
+      </div>
+    </div>
+    <div class="mosaic">
+      <div class="tile"><img src="img/scones-plain.jpg" alt=""></div>
+      <div class="tile"><img src="img/shortbread-tray.jpg" alt=""></div>
+      <div class="tile"><img src="img/cinnamon-swirls.jpg" alt=""></div>
+      <div class="tile"><img src="img/red-velvet-slice.jpg" alt=""></div>
+      <div class="tile"><img src="img/coffee-cake.jpg" alt=""></div>
+      <div class="tile"><img src="img/poppy-rolls.jpg" alt=""></div>
+      <div class="tile"><img src="img/shortbread-jar.jpg" alt=""></div>
+      <div class="tile"><img src="img/tiramisu-squares.jpg" alt=""></div>
+      <div class="tile"><img src="img/muffin-scone-box.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" class="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">How it works</span>
+        <h2>Four small <em>steps</em> to warm things.</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Send a message</h4><p>WhatsApp, call, or fill in the form below. Tell us what you'd like and when you'd like it.</p></div>
+      <div class="step"><div class="n">02</div><h4>We'll confirm</h4><p>We'll reply with a quote, confirm availability, and agree on collection or local delivery.</p></div>
+      <div class="step"><div class="n">03</div><h4>Pop the oven on</h4><p>We bake everything fresh on the day — so we ask for 24–48 hours' notice on most orders.</p></div>
+      <div class="step"><div class="n">04</div><h4>Warm & waiting</h4><p>Collect or receive your order, beautifully packed. Still a little warm if you're quick.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOVE -->
+<section id="love" class="love">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">Love notes</span>
+        <h2>Kind words from <em>kind people.</em></h2>
+      </div>
+    </div>
+    <div class="love-grid">
+      <div class="quote">
+        <p class="t">Tee's scones are the reason I gained five kilos this winter and I don't regret a thing. They're always still warm when she hands them over.</p>
+        <div class="by"><div class="av">A</div><div><div class="nm">Aaliyah M.</div><div class="lo">Fourways</div></div></div>
+      </div>
+      <div class="quote">
+        <p class="t">Ordered the assorted biscuit box for my mom's 60th — she cried. Everyone asked where we got it from. Best gift I've given in years.</p>
+        <div class="by"><div class="av">R</div><div><div class="nm">Rashaad D.</div><div class="lo">Lenasia</div></div></div>
+      </div>
+      <div class="quote">
+        <p class="t">The red velvet cake was unreal. Moist, not too sweet, and the cream cheese frosting wasn't that heavy piped stuff — just right. Ordering again for my husband's birthday.</p>
+        <div class="by"><div class="av">Z</div><div><div class="nm">Zahra K.</div><div class="lo">Mayfair</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">Questions</span>
+        <h2>Things people often <em>ask.</em></h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>How do I place an order?</summary>
+        <div class="a">The easiest way is WhatsApp — send us a message with what you'd like, how many, and when you need it for. You can also call or fill in the contact form below. We'll reply with a quote and confirm everything before you pay.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How much notice do you need?</summary>
+        <div class="a">For scones, biscuits, and cookies — 24 hours. For cakes, rolls, and larger platters — 48 hours. For big events (50+ people), please give us at least a week so we can plan properly.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you deliver?</summary>
+        <div class="a">Yes — we deliver locally around Johannesburg for a small fee (depending on distance). Collection is free from our kitchen. Let us know your suburb when you order and we'll sort the rest.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I pay?</summary>
+        <div class="a">We accept EFT and cash on collection. A small deposit secures larger orders (cakes, platters). Full bank details are shared when we confirm your order.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you cater for allergies or halaal?</summary>
+        <div class="a">All our ingredients are halaal-friendly. For nut allergies, please let us know up front — we bake with nuts in the kitchen, so we'll advise on what we can safely accommodate.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you cater events?</summary>
+        <div class="a">Yes — tea tables, dessert tables, office mornings, weddings, and kitchen teas. Send us the date, headcount, and any theme colours and we'll put a proposal together.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Place an order</span>
+      <h2>Let's bake <em>something warm.</em></h2>
+      <p class="lede">Easiest way to reach us is WhatsApp — we reply between 8am and 6pm most days. For detailed orders or events, use the form and we'll come back to you within the day.</p>
+
+      <div class="channels">
+        <a class="chan wa" href="https://wa.me/27678106965" target="_blank" rel="noopener">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.8 4.3 1.8.8 2.5.9 3.3.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18.3c-1.6 0-3-.4-4.3-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.3 8.3 0 1120.3 12 8.3 8.3 0 0112 20.3z"/></svg></div>
+          <div><div class="k">WhatsApp</div><div class="v">067 810 6965</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan call" href="tel:+27678106965">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .3l-2.2 2.2a15 15 0 01-6.6-6.6l2.2-2.2c.3-.3.4-.7.3-1-.4-1.1-.6-2.4-.6-3.6 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1a17 17 0 0017 17c.6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg></div>
+          <div><div class="k">Call us</div><div class="v">067 810 6965</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan" href="https://instagram.com/Tee'sWarmDelights" target="_blank" rel="noopener">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 1.8.2 2.2.4a4.5 4.5 0 012.3 2.3c.2.4.4 1 .4 2.2 0 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 1.8-.4 2.2a4.5 4.5 0 01-2.3 2.3c-.4.2-1 .4-2.2.4-1.2 0-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-1.8-.2-2.2-.4a4.5 4.5 0 01-2.3-2.3c-.2-.4-.4-1-.4-2.2 0-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-1.8.4-2.2A4.5 4.5 0 015 2.7c.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1M12 0C8.7 0 8.3 0 7 .1 5.8.1 5 .3 4.2.6a6.7 6.7 0 00-3.6 3.6C.3 5 .1 5.8.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c0 1.2.2 2 .5 2.8a6.7 6.7 0 003.6 3.6c.8.3 1.6.5 2.8.5 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.2 0 2-.2 2.8-.5a6.7 6.7 0 003.6-3.6c.3-.8.5-1.6.5-2.8.1-1.3.1-1.7.1-5s0-3.7-.1-5c0-1.2-.2-2-.5-2.8A6.7 6.7 0 0019.8.6C19 .3 18.2.1 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-10.4a1.4 1.4 0 100-2.9 1.4 1.4 0 000 2.9z"/></svg></div>
+          <div><div class="k">Instagram</div><div class="v">@Tee'sWarmDelights</div></div>
+          <div class="arr">→</div>
+        </a>
+      </div>
+
+      <div class="hours">
+        <div class="title">Kitchen hours</div>
+        <div class="d">Mon – Fri</div><div class="h">8:00 – 18:00</div>
+        <div class="d">Saturday</div><div class="h">8:00 – 14:00</div>
+        <div class="d">Sunday</div><div class="h">Closed</div>
+      </div>
+    </div>
+
+    <form id="order-form" onsubmit="submitForm(event)">
+      <h3 class="form-title">Tell us about your order</h3>
+      <p class="form-sub">The more detail, the better. We'll come back to you with a quote and confirm everything before you pay.</p>
+
+      <div class="row">
+        <div class="field">
+          <label>Your name</label>
+          <input type="text" name="name" required placeholder="e.g. Aisha" />
+        </div>
+        <div class="field">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" name="phone" required placeholder="067 000 0000" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Email (optional)</label>
+        <input type="email" name="email" placeholder="you@email.com" />
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>What would you like?</label>
+          <select name="item" required>
+            <option value="">Choose an item…</option>
+            <option>Scones</option>
+            <option>Cake</option>
+            <option>Biscuit Platter / Box</option>
+            <option>Cookies</option>
+            <option>Muffins / Loaves</option>
+            <option>Croissants / Bread</option>
+            <option>Event catering</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Needed by</label>
+          <input type="date" name="date" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Tell us more</label>
+        <textarea name="notes" placeholder="Quantities, flavours, occasion, delivery suburb — anything we should know."></textarea>
+      </div>
+
+      <div class="submit">
+        <button type="submit" class="btn btn-primary btn-lg">Send request</button>
+        <small>We'll reply on WhatsApp within a few hours, Mon–Sat.</small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="fbrand brand">
+          <div class="mark"><img src="img/logo.jpg" alt=""></div>
+          <div class="wm"><div class="s">Tee's warm</div><div class="d" style="color:var(--olive)">DELIGHTS</div></div>
+        </div>
+        <p class="lead">"Freshly baked, made with love — one small batch at a time."</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="#story">Our story</a>
+        <a href="#menu">Menu</a>
+        <a href="#how">How to order</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h5>Order</h5>
+        <a href="https://wa.me/27678106965" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+27678106965">067 810 6965</a>
+        <a href="#contact">Contact form</a>
+        <a href="https://instagram.com/Tee'sWarmDelights" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div>
+        <h5>Kitchen hours</h5>
+        <a>Mon – Fri · 8am – 6pm</a>
+        <a>Saturday · 8am – 2pm</a>
+        <a>Sunday · Closed</a>
+      </div>
+    </div>
+    <div class="bot">
+      <div>© 2026 Tee's Warm Delights. Baked in Johannesburg.</div>
+      <div>Site crafted with care · Made to order, made to share</div>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/27678106965" target="_blank" rel="noopener" aria-label="WhatsApp us">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.8 4.3 1.8.8 2.5.9 3.3.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18.3c-1.6 0-3-.4-4.3-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.3 8.3 0 1120.3 12 8.3 8.3 0 0112 20.3z"/></svg>
+</a>
+
+<div id="toast">Thanks! We'll WhatsApp you back shortly.</div>
+
+<!-- TWEAKS -->
+<div id="tweaks">
+  <h6>Tweaks <button onclick="document.getElementById('tweaks').classList.remove('on')" style="color:var(--ink-soft)">×</button></h6>
+  <div class="tw">
+    <label>Accent palette</label>
+    <div class="swatches">
+      <button class="sw on" data-acc="navy-olive" style="background:linear-gradient(135deg,#1a1f4d 50%, #9a9646 50%)"></button>
+      <button class="sw" data-acc="choc-cream" style="background:linear-gradient(135deg,#3a2618 50%, #c6935b 50%)"></button>
+      <button class="sw" data-acc="berry-gold" style="background:linear-gradient(135deg,#6b1d2f 50%, #c49b3c 50%)"></button>
+      <button class="sw" data-acc="forest-butter" style="background:linear-gradient(135deg,#2e4a35 50%, #d4a64a 50%)"></button>
+    </div>
+  </div>
+  <div class="tw">
+    <label>Display font</label>
+    <select id="tw-font">
+      <option value="DM Serif Display">DM Serif Display (current)</option>
+      <option value="Playfair Display">Playfair Display</option>
+      <option value="Cormorant Garamond">Cormorant Garamond</option>
+      <option value="Fraunces">Fraunces</option>
+    </select>
+  </div>
+  <div class="tw">
+    <label>Background</label>
+    <div class="swatches">
+      <button class="sw on" data-bg="paper" style="background:#fdfaf4"></button>
+      <button class="sw" data-bg="blush" style="background:#fce8e8"></button>
+      <button class="sw" data-bg="cream" style="background:#f3ead8"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tweak defaults
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "berry-gold",
+    "displayFont": "Playfair Display",
+    "background": "paper"
+  }/*EDITMODE-END*/;
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger) {
+    burger.addEventListener('click', () => {
+      const on = !mobileMenu.classList.contains('on');
+      burger.classList.toggle('on', on);
+      mobileMenu.classList.toggle('on', on);
+      document.getElementById('menuScrim').classList.toggle('on', on);
+    });
+    const close = () => {
+      burger.classList.remove('on');
+      mobileMenu.classList.remove('on');
+      document.getElementById('menuScrim').classList.remove('on');
+    };
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.getElementById('menuScrim').addEventListener('click', close);
+  }
+
+  // Menu filtering
+  const cats = document.querySelectorAll('.cat');
+  const cards = document.querySelectorAll('#menuGrid .card');
+  cats.forEach(b => b.addEventListener('click', () => {
+    cats.forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    const v = b.dataset.cat;
+    cards.forEach(c => {
+      c.style.display = (v === 'all' || c.dataset.cat === v) ? '' : 'none';
+    });
+  }));
+
+  // Order CTAs on each card -> prefilled WhatsApp
+  cards.forEach(c => {
+    c.addEventListener('click', (e) => {
+      const name = c.querySelector('.name').textContent.trim();
+      const msg = encodeURIComponent(`Hi Tee, I'd like to order: ${name}`);
+      window.open(`https://wa.me/27678106965?text=${msg}`, '_blank');
+    });
+  });
+
+  // Form submit -> WhatsApp
+  function submitForm(e) {
+    e.preventDefault();
+    const f = e.target;
+    const d = Object.fromEntries(new FormData(f));
+    const text = `Hi Tee! I'd like to place an order.%0A%0A` +
+      `*Name:* ${d.name}%0A` +
+      `*Phone:* ${d.phone}%0A` +
+      (d.email ? `*Email:* ${d.email}%0A` : '') +
+      `*Item:* ${d.item}%0A` +
+      `*Needed by:* ${d.date}%0A` +
+      (d.notes ? `*Notes:* ${d.notes}%0A` : '');
+    const t = document.getElementById('toast');
+    t.classList.add('on');
+    setTimeout(() => t.classList.remove('on'), 3500);
+    setTimeout(() => window.open(`https://wa.me/27678106965?text=${text}`, '_blank'), 400);
+    f.reset();
+  }
+
+  // Min date = tomorrow (we need 24h)
+  const dateInput = document.querySelector('input[name=date]');
+  if (dateInput) {
+    const t = new Date(); t.setDate(t.getDate()+1);
+    dateInput.min = t.toISOString().slice(0,10);
+  }
+
+  // --- Tweaks protocol ---
+  const palettes = {
+    'navy-olive': {navy:'#1a1f4d','navy-ink':'#141837',olive:'#9a9646','olive-deep':'#7a7835',blush:'#fce8e8',cream:'#faf3e8','cream-warm':'#f3ead8'},
+    'choc-cream': {navy:'#3a2618','navy-ink':'#2a1a10',olive:'#c6935b','olive-deep':'#9e7040',blush:'#f5e6d3',cream:'#f8f0e1','cream-warm':'#efe0c4'},
+    'berry-gold': {navy:'#6b1d2f','navy-ink':'#4e1322',olive:'#c49b3c','olive-deep':'#9e7b26',blush:'#f8e5e2',cream:'#faf0e0','cream-warm':'#f0e0c0'},
+    'forest-butter': {navy:'#2e4a35',"navy-ink":'#1f3626',olive:'#d4a64a','olive-deep':'#a88534',blush:'#ece9d8',cream:'#f5efde',"cream-warm":'#ede1c0'},
+  };
+  const bgs = {paper:'#fdfaf4', blush:'#fce8e8', cream:'#f3ead8'};
+
+  function applyTweaks(t){
+    const p = palettes[t.accent] || palettes['navy-olive'];
+    const root = document.documentElement;
+    Object.entries(p).forEach(([k,v])=>root.style.setProperty('--'+k, v));
+    root.style.setProperty('--paper', bgs[t.background] || bgs.paper);
+    // Update display font
+    document.querySelectorAll('.serif, h1, h2, h3, h4, .name, .form-title, .faq-item summary, .story .sig').forEach(el=>{});
+    const style = document.getElementById('tw-font-style') || (()=>{
+      const s=document.createElement('style');s.id='tw-font-style';document.head.appendChild(s);return s;
+    })();
+    style.textContent = `h1, h2, h3, h4, .name, .form-title, .faq-item summary, .feature h3, .sec-head h2, .quote .t, .footer .lead { font-family: '${t.displayFont}', 'DM Serif Display', serif !important; }
+    @import url('https://fonts.googleapis.com/css2?family=${t.displayFont.replace(/ /g,'+')}:ital,wght@0,400;0,600;1,400&display=swap');`;
+    // highlight swatches
+    document.querySelectorAll('#tweaks [data-acc]').forEach(b=>b.classList.toggle('on', b.dataset.acc===t.accent));
+    document.querySelectorAll('#tweaks [data-bg]').forEach(b=>b.classList.toggle('on', b.dataset.bg===t.background));
+    const sel = document.getElementById('tw-font'); if(sel) sel.value = t.displayFont;
+  }
+  let currentTweaks = {...TWEAK_DEFAULTS};
+  applyTweaks(currentTweaks);
+
+  function setTweak(k,v){
+    currentTweaks = {...currentTweaks, [k]:v};
+    applyTweaks(currentTweaks);
+    try{ window.parent.postMessage({type:'__edit_mode_set_keys',edits:{[k]:v}},'*'); }catch(e){}
+  }
+  document.querySelectorAll('#tweaks [data-acc]').forEach(b=>b.onclick=()=>setTweak('accent',b.dataset.acc));
+  document.querySelectorAll('#tweaks [data-bg]').forEach(b=>b.onclick=()=>setTweak('background',b.dataset.bg));
+  document.getElementById('tw-font').onchange=(e)=>setTweak('displayFont',e.target.value);
+
+  // Listener BEFORE announcing availability
+  window.addEventListener('message', (e) => {
+    const m = e.data;
+    if (!m || !m.type) return;
+    if (m.type === '__activate_edit_mode')   document.getElementById('tweaks').classList.add('on');
+    if (m.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+  });
+  try{ window.parent.postMessage({type:'__edit_mode_available'},'*'); }catch(e){}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,770 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Tee's Warm Delights">
+      <div class="mark"><img src="img/logo.jpg" alt=""></div>
+      <div class="wm"><div class="s">Tee's warm</div><div class="d">DELIGHTS</div></div>
+    </a>
+    <div class="links">
+      <a href="#story">Our story</a>
+      <a href="#menu">Menu</a>
+      <a href="#how">How to order</a>
+      <a href="#love">Love notes</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="cta-pair">
+      <a href="#contact" class="btn btn-ghost hide-mobile">Place an order</a>
+    </div>
+  </div>
+</nav>
+<button class="burger" id="burger" aria-label="Menu"><span></span></button>
+<div class="menu-scrim" id="menuScrim"></div>
+<div class="mobile-menu" id="mobileMenu" role="menu">
+  <a href="#story">Our story</a>
+  <a href="#menu">Menu</a>
+  <a href="#how">How to order</a>
+  <a href="#love">Love notes</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <div class="sep"></div>
+  <div class="ctas">
+    <a class="btn btn-primary" href="https://wa.me/27678106965" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn btn-ghost" href="tel:+27678106965">Call</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header id="top" class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="tag"><span class="dot"></span> Home-bakery · Made to order</span>
+      <h1>Freshly baked,<br><em>made with love.</em></h1>
+      <p class="lede">Scones still warm from the oven, buttery shortbreads, layer cakes, and biscuit platters — baked in small batches from our kitchen to your table. One call, one message, and it's on its way.</p>
+      <div class="ctas">
+        <a class="btn btn-primary btn-lg" href="https://wa.me/27678106965" target="_blank" rel="noopener">
+          <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.8 4.3 1.8.8 2.5.9 3.3.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18.3c-1.6 0-3-.4-4.3-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.3 8.3 0 1120.3 12 8.3 8.3 0 0112 20.3z"/></svg>
+          WhatsApp us
+        </a>
+        <a class="btn btn-ghost btn-lg" href="tel:+27678106965">Call 067 810 6965</a>
+      </div>
+      <div class="meta">
+        <div class="mi"><span class="k">Based in</span><span class="v">Johannesburg, SA</span></div>
+        <div class="mi"><span class="k">Lead time</span><span class="v">24–48 hours</span></div>
+        <div class="mi"><span class="k">Delivery</span><span class="v">Local & collection</span></div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="b"><img src="img/scones-hand.jpg" alt="Buttermilk scones"></div>
+      <div class="a"><img src="img/red-velvet-cake.jpg" alt="Red velvet cake"></div>
+      <div class="c"><img src="img/biscuit-platter-mixed.jpg" alt="Mixed biscuit platter"></div>
+      <div class="stamp" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <path id="arc" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"></path>
+          </defs>
+          <text fill="#faf3e8" font-family="Inter" font-size="14" letter-spacing="4" font-weight="600">
+            <textPath href="#arc">· BAKED FRESH DAILY · SINCE 2021 · BAKED FRESH DAILY · </textPath>
+          </text>
+        </svg>
+        <div class="ctr"><span>fresh</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Scones <span class="dot">✦</span> Cakes <span class="dot">✦</span> Biscuits <span class="dot">✦</span> Muffins <span class="dot">✦</span> Cookies <span class="dot">✦</span> Breads <span class="dot">✦</span> Platters <span class="dot">✦</span> Croissants <span class="dot">✦</span></span>
+    <span>Scones <span class="dot">✦</span> Cakes <span class="dot">✦</span> Biscuits <span class="dot">✦</span> Muffins <span class="dot">✦</span> Cookies <span class="dot">✦</span> Breads <span class="dot">✦</span> Platters <span class="dot">✦</span> Croissants <span class="dot">✦</span></span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story" class="story">
+  <div class="wrap grid">
+    <div class="imgwrap"><img src="img/heart-scones.jpg" alt="Heart-shaped scones"></div>
+    <div>
+      <span class="eyebrow">Our story</span>
+      <h2>A small kitchen with <em>big flavour.</em></h2>
+      <p>Tee's Warm Delights started the way most good things do — at home, at the kitchen table, with flour on the counter and someone asking for "just one more". Today we bake to order for birthdays, tea trays, office mornings, and the quiet moments in between.</p>
+      <p>Every scone is rolled by hand. Every cake is layered from scratch. Nothing sits on a shelf — we bake the day you collect, so every bite is still warm.</p>
+      <p class="sig">— Tee<small>Owner & head baker</small></p>
+      <div class="badges">
+        <span class="badge"><span class="d"></span> Small-batch</span>
+        <span class="badge"><span class="d"></span> Baked to order</span>
+        <span class="badge"><span class="d"></span> Halaal-friendly ingredients</span>
+        <span class="badge"><span class="d"></span> No preservatives</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">The menu</span>
+        <h2>What's in the <em>oven.</em></h2>
+        <p>A rotating range of warm favourites. Everything is made to order — see something you love? Send us a note on WhatsApp with what and when.</p>
+      </div>
+      <a href="#contact" class="btn btn-olive">Request a quote</a>
+    </div>
+
+    <div class="cats" role="tablist">
+      <button class="cat on" data-cat="all">All <span class="n">24</span></button>
+      <button class="cat" data-cat="scones">Scones <span class="n">4</span></button>
+      <button class="cat" data-cat="cakes">Cakes <span class="n">6</span></button>
+      <button class="cat" data-cat="cookies">Cookies <span class="n">5</span></button>
+      <button class="cat" data-cat="biscuits">Biscuits & Shortbread <span class="n">4</span></button>
+      <button class="cat" data-cat="muffins">Muffins & Loaves <span class="n">3</span></button>
+      <button class="cat" data-cat="breads">Breads & Pastries <span class="n">2</span></button>
+    </div>
+
+    <div class="grid-menu" id="menuGrid">
+      <!-- SCONES -->
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/scones-hand.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones</span>
+          <h3 class="name">Buttermilk Scones</h3>
+          <p class="desc">Tall, tender, golden-topped. Plain or cheesy — perfect with jam, cream, or a cup of tea.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/heart-scones.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones · Special</span>
+          <h3 class="name">Heart-shaped Scones</h3>
+          <p class="desc">Same buttery crumb, hand-cut into hearts. A lovely little touch for birthdays and anniversaries.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/poppyseed-scone.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones</span>
+          <h3 class="name">Lemon & Poppyseed Scones</h3>
+          <p class="desc">Bright and citrusy with a crisp, glossy top and a subtle crunch of poppy seeds throughout.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="scones">
+        <div class="pic"><img src="img/seed-loaf.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Scones</span>
+          <h3 class="name">Mixed-Seed Scones</h3>
+          <p class="desc">A heartier take — flaxseed, sunflower, pumpkin. Savoury, wholesome, holds butter beautifully.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- CAKES -->
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/red-velvet-cake.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Red Velvet Cake</h3>
+          <p class="desc">Three-layer classic, piped cream-cheese frosting, velvety crumb all the way through.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/chocolate-cake-slice.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Chocolate Layer Cake</h3>
+          <p class="desc">Four deep-cocoa layers, silky chocolate buttercream, with a hidden caramel centre.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/pistachio-cake.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Pistachio Cream Cake</h3>
+          <p class="desc">Three sponge layers folded with whipped pistachio cream — delicate, nutty, a little fancy.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/carrot-bundt.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes</span>
+          <h3 class="name">Carrot Bundt</h3>
+          <p class="desc">Warmly spiced, pecan-studded, crowned with cream-cheese glaze and toasted pecans.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/tiramisu-roll.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes · Roll</span>
+          <h3 class="name">Tiramisu Swiss Roll</h3>
+          <p class="desc">Coffee-soaked sponge, mascarpone cream, dusted generously with cocoa. Keeps beautifully.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cakes">
+        <div class="pic"><img src="img/ferrero-swiss-roll.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cakes · Roll</span>
+          <h3 class="name">Chocolate Hazelnut Roll</h3>
+          <p class="desc">Dark chocolate sponge, whipped-cream centre, draped in ganache and finished with Ferrero.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- COOKIES -->
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/choc-chip-cookie.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Big Chocolate-Chip Cookies</h3>
+          <p class="desc">Palm-sized, soft centre, crisp edges. The kind you wait to cool and don't.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/smores-cookie.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">S'mores Cookies</h3>
+          <p class="desc">Chunks of chocolate, pillowy marshmallow, graham crumbs — toasted on top the way you'd want.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/ferrero-cookie.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Double-Choc Hazelnut</h3>
+          <p class="desc">A rich cocoa cookie drizzled with milk chocolate, crushed hazelnut, and a Ferrero in the centre.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/oat-sandwich.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Oat Choc Sandwich</h3>
+          <p class="desc">Two chewy oat cookies filled with melted milk chocolate. Dunks beautifully in coffee.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="cookies">
+        <div class="pic"><img src="img/ginger-biscuits.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Cookies</span>
+          <h3 class="name">Ginger Crinkle Cookies</h3>
+          <p class="desc">Chewy, spiced, sugar-crackled. Warms up a winter afternoon like almost nothing else.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- BISCUITS -->
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/biscuit-platter-mixed.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Platter</span>
+          <h3 class="name">Eid / Celebration Biscuit Platter</h3>
+          <p class="desc">Eight varieties — chocolate fingers, romany creams, jammies, shortbread, more — arranged to impress.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/shortbread-classic.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Shortbread</span>
+          <h3 class="name">Classic Shortbread</h3>
+          <p class="desc">Three-ingredient simplicity done right. Crumbly, buttery, stays fresh in the jar for a week.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/chocolate-rounds.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Biscuits</span>
+          <h3 class="name">Chocolate Fudge Rounds</h3>
+          <p class="desc">Piped cocoa shortbread with a smooth milk-chocolate centre. Small, neat, addictive.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="biscuits">
+        <div class="pic"><img src="img/coconut-biscuits.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Biscuits</span>
+          <h3 class="name">Coconut Crunch</h3>
+          <p class="desc">Crackled-top coconut biscuits with a golden crumb. A cup of tea's best friend.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- MUFFINS & LOAVES -->
+      <article class="card" data-cat="muffins">
+        <div class="pic"><img src="img/blueberry-muffins.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Muffins</span>
+          <h3 class="name">Blueberry Muffins</h3>
+          <p class="desc">Jammy-burst tops, tender crumb, a hit of lemon zest. Best eaten the day they're baked.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="muffins">
+        <div class="pic"><img src="img/banana-bread.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Loaves</span>
+          <h3 class="name">Banana Bread</h3>
+          <p class="desc">Ripe-banana loaf, moist, lightly spiced. Slice thick, toast it, smear with butter.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="muffins">
+        <div class="pic"><img src="img/chocolate-loaf.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Loaves</span>
+          <h3 class="name">Double-Chocolate Loaf</h3>
+          <p class="desc">Dark cocoa crumb studded with chocolate chunks. Dense, fudgy, grown-up.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+
+      <!-- BREADS -->
+      <article class="card" data-cat="breads">
+        <div class="pic"><img src="img/croissants.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Pastry</span>
+          <h3 class="name">Butter Croissants</h3>
+          <p class="desc">Thirty-six hours of folding, rolling, proving. Flaky, shatter-on-the-plate kind of flaky.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+      <article class="card" data-cat="breads">
+        <div class="pic"><img src="img/hotcross-buns.jpg" alt=""></div>
+        <div class="body">
+          <span class="cat-tag">Breads · Seasonal</span>
+          <h3 class="name">Hot-Cross Buns</h3>
+          <p class="desc">Spiced, raisin-studded, soft and pillowy. Easter tradition made a day early.</p>
+          <div class="foot"><span class="avail">Made to order</span><span class="order">Enquire</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Featured -->
+<section class="feature">
+  <div class="wrap">
+    <div class="grid">
+      <div class="imgwrap"><img src="img/biscuit-box-assorted.jpg" alt="Assorted biscuit box"></div>
+      <div class="txt">
+        <span class="eyebrow">Bestseller</span>
+        <h3>The <em>Assorted Biscuit Box</em> — a little of everything.</h3>
+        <p>Our bestselling gift box. Eight varieties — chocolate fingers, jammies, shortbread squares, romany creams, coconut crunch, and more — arranged in a keepsake tray. Perfect for housewarmings, thank-yous, and tea with the in-laws.</p>
+        <a href="https://wa.me/27678106965?text=Hi%20Tee%2C%20I%27d%20like%20to%20order%20the%20Assorted%20Biscuit%20Box" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">The bake board</span>
+        <h2>Looks good. <em>Tastes better.</em></h2>
+        <p>A little peek into the kitchen. Follow along on Instagram @Tee'sWarmDelights for daily bakes, weekend specials, and behind-the-scenes.</p>
+      </div>
+    </div>
+    <div class="mosaic">
+      <div class="tile"><img src="img/scones-plain.jpg" alt=""></div>
+      <div class="tile"><img src="img/shortbread-tray.jpg" alt=""></div>
+      <div class="tile"><img src="img/cinnamon-swirls.jpg" alt=""></div>
+      <div class="tile"><img src="img/red-velvet-slice.jpg" alt=""></div>
+      <div class="tile"><img src="img/coffee-cake.jpg" alt=""></div>
+      <div class="tile"><img src="img/poppy-rolls.jpg" alt=""></div>
+      <div class="tile"><img src="img/shortbread-jar.jpg" alt=""></div>
+      <div class="tile"><img src="img/tiramisu-squares.jpg" alt=""></div>
+      <div class="tile"><img src="img/muffin-scone-box.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how" class="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">How it works</span>
+        <h2>Four small <em>steps</em> to warm things.</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h4>Send a message</h4><p>WhatsApp, call, or fill in the form below. Tell us what you'd like and when you'd like it.</p></div>
+      <div class="step"><div class="n">02</div><h4>We'll confirm</h4><p>We'll reply with a quote, confirm availability, and agree on collection or local delivery.</p></div>
+      <div class="step"><div class="n">03</div><h4>Pop the oven on</h4><p>We bake everything fresh on the day — so we ask for 24–48 hours' notice on most orders.</p></div>
+      <div class="step"><div class="n">04</div><h4>Warm & waiting</h4><p>Collect or receive your order, beautifully packed. Still a little warm if you're quick.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOVE -->
+<section id="love" class="love">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">Love notes</span>
+        <h2>Kind words from <em>kind people.</em></h2>
+      </div>
+    </div>
+    <div class="love-grid">
+      <div class="quote">
+        <p class="t">Tee's scones are the reason I gained five kilos this winter and I don't regret a thing. They're always still warm when she hands them over.</p>
+        <div class="by"><div class="av">A</div><div><div class="nm">Aaliyah M.</div><div class="lo">Fourways</div></div></div>
+      </div>
+      <div class="quote">
+        <p class="t">Ordered the assorted biscuit box for my mom's 60th — she cried. Everyone asked where we got it from. Best gift I've given in years.</p>
+        <div class="by"><div class="av">R</div><div><div class="nm">Rashaad D.</div><div class="lo">Lenasia</div></div></div>
+      </div>
+      <div class="quote">
+        <p class="t">The red velvet cake was unreal. Moist, not too sweet, and the cream cheese frosting wasn't that heavy piped stuff — just right. Ordering again for my husband's birthday.</p>
+        <div class="by"><div class="av">Z</div><div><div class="nm">Zahra K.</div><div class="lo">Mayfair</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">Questions</span>
+        <h2>Things people often <em>ask.</em></h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>How do I place an order?</summary>
+        <div class="a">The easiest way is WhatsApp — send us a message with what you'd like, how many, and when you need it for. You can also call or fill in the contact form below. We'll reply with a quote and confirm everything before you pay.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How much notice do you need?</summary>
+        <div class="a">For scones, biscuits, and cookies — 24 hours. For cakes, rolls, and larger platters — 48 hours. For big events (50+ people), please give us at least a week so we can plan properly.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you deliver?</summary>
+        <div class="a">Yes — we deliver locally around Johannesburg for a small fee (depending on distance). Collection is free from our kitchen. Let us know your suburb when you order and we'll sort the rest.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I pay?</summary>
+        <div class="a">We accept EFT and cash on collection. A small deposit secures larger orders (cakes, platters). Full bank details are shared when we confirm your order.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can you cater for allergies or halaal?</summary>
+        <div class="a">All our ingredients are halaal-friendly. For nut allergies, please let us know up front — we bake with nuts in the kitchen, so we'll advise on what we can safely accommodate.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you cater events?</summary>
+        <div class="a">Yes — tea tables, dessert tables, office mornings, weddings, and kitchen teas. Send us the date, headcount, and any theme colours and we'll put a proposal together.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Place an order</span>
+      <h2>Let's bake <em>something warm.</em></h2>
+      <p class="lede">Easiest way to reach us is WhatsApp — we reply between 8am and 6pm most days. For detailed orders or events, use the form and we'll come back to you within the day.</p>
+
+      <div class="channels">
+        <a class="chan wa" href="https://wa.me/27678106965" target="_blank" rel="noopener">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.8 4.3 1.8.8 2.5.9 3.3.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18.3c-1.6 0-3-.4-4.3-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.3 8.3 0 1120.3 12 8.3 8.3 0 0112 20.3z"/></svg></div>
+          <div><div class="k">WhatsApp</div><div class="v">067 810 6965</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan call" href="tel:+27678106965">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6-.3-.1-.7 0-1 .3l-2.2 2.2a15 15 0 01-6.6-6.6l2.2-2.2c.3-.3.4-.7.3-1-.4-1.1-.6-2.4-.6-3.6 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1a17 17 0 0017 17c.6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg></div>
+          <div><div class="k">Call us</div><div class="v">067 810 6965</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan" href="https://instagram.com/Tee'sWarmDelights" target="_blank" rel="noopener">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 1.8.2 2.2.4a4.5 4.5 0 012.3 2.3c.2.4.4 1 .4 2.2 0 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 1.8-.4 2.2a4.5 4.5 0 01-2.3 2.3c-.4.2-1 .4-2.2.4-1.2 0-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-1.8-.2-2.2-.4a4.5 4.5 0 01-2.3-2.3c-.2-.4-.4-1-.4-2.2 0-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c0-1.2.2-1.8.4-2.2A4.5 4.5 0 015 2.7c.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1M12 0C8.7 0 8.3 0 7 .1 5.8.1 5 .3 4.2.6a6.7 6.7 0 00-3.6 3.6C.3 5 .1 5.8.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c0 1.2.2 2 .5 2.8a6.7 6.7 0 003.6 3.6c.8.3 1.6.5 2.8.5 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.2 0 2-.2 2.8-.5a6.7 6.7 0 003.6-3.6c.3-.8.5-1.6.5-2.8.1-1.3.1-1.7.1-5s0-3.7-.1-5c0-1.2-.2-2-.5-2.8A6.7 6.7 0 0019.8.6C19 .3 18.2.1 17 .1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zm0 10.2a4 4 0 110-8 4 4 0 010 8zm6.4-10.4a1.4 1.4 0 100-2.9 1.4 1.4 0 000 2.9z"/></svg></div>
+          <div><div class="k">Instagram</div><div class="v">@Tee'sWarmDelights</div></div>
+          <div class="arr">→</div>
+        </a>
+      </div>
+
+      <div class="hours">
+        <div class="title">Kitchen hours</div>
+        <div class="d">Mon – Fri</div><div class="h">8:00 – 18:00</div>
+        <div class="d">Saturday</div><div class="h">8:00 – 14:00</div>
+        <div class="d">Sunday</div><div class="h">Closed</div>
+      </div>
+    </div>
+
+    <form id="order-form" onsubmit="submitForm(event)">
+      <h3 class="form-title">Tell us about your order</h3>
+      <p class="form-sub">The more detail, the better. We'll come back to you with a quote and confirm everything before you pay.</p>
+
+      <div class="row">
+        <div class="field">
+          <label>Your name</label>
+          <input type="text" name="name" required placeholder="e.g. Aisha" />
+        </div>
+        <div class="field">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" name="phone" required placeholder="067 000 0000" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Email (optional)</label>
+        <input type="email" name="email" placeholder="you@email.com" />
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>What would you like?</label>
+          <select name="item" required>
+            <option value="">Choose an item…</option>
+            <option>Scones</option>
+            <option>Cake</option>
+            <option>Biscuit Platter / Box</option>
+            <option>Cookies</option>
+            <option>Muffins / Loaves</option>
+            <option>Croissants / Bread</option>
+            <option>Event catering</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Needed by</label>
+          <input type="date" name="date" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Tell us more</label>
+        <textarea name="notes" placeholder="Quantities, flavours, occasion, delivery suburb — anything we should know."></textarea>
+      </div>
+
+      <div class="submit">
+        <button type="submit" class="btn btn-primary btn-lg">Send request</button>
+        <small>We'll reply on WhatsApp within a few hours, Mon–Sat.</small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="fbrand brand">
+          <div class="mark"><img src="img/logo.jpg" alt=""></div>
+          <div class="wm"><div class="s">Tee's warm</div><div class="d" style="color:var(--olive)">DELIGHTS</div></div>
+        </div>
+        <p class="lead">"Freshly baked, made with love — one small batch at a time."</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="#story">Our story</a>
+        <a href="#menu">Menu</a>
+        <a href="#how">How to order</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h5>Order</h5>
+        <a href="https://wa.me/27678106965" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="tel:+27678106965">067 810 6965</a>
+        <a href="#contact">Contact form</a>
+        <a href="https://instagram.com/Tee'sWarmDelights" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div>
+        <h5>Kitchen hours</h5>
+        <a>Mon – Fri · 8am – 6pm</a>
+        <a>Saturday · 8am – 2pm</a>
+        <a>Sunday · Closed</a>
+      </div>
+    </div>
+    <div class="bot">
+      <div>© 2026 Tee's Warm Delights. Baked in Johannesburg.</div>
+      <div>Site crafted with care · Made to order, made to share</div>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/27678106965" target="_blank" rel="noopener" aria-label="WhatsApp us">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2s-.8.9-1 1.1c-.2.2-.4.2-.7.1-.3-.1-1.2-.4-2.3-1.4-.8-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.8 4.3 1.8.8 2.5.9 3.3.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.6-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18.3c-1.6 0-3-.4-4.3-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.3 8.3 0 1120.3 12 8.3 8.3 0 0112 20.3z"/></svg>
+</a>
+
+<div id="toast">Thanks! We'll WhatsApp you back shortly.</div>
+
+<!-- TWEAKS -->
+<div id="tweaks">
+  <h6>Tweaks <button onclick="document.getElementById('tweaks').classList.remove('on')" style="color:var(--ink-soft)">×</button></h6>
+  <div class="tw">
+    <label>Accent palette</label>
+    <div class="swatches">
+      <button class="sw on" data-acc="navy-olive" style="background:linear-gradient(135deg,#1a1f4d 50%, #9a9646 50%)"></button>
+      <button class="sw" data-acc="choc-cream" style="background:linear-gradient(135deg,#3a2618 50%, #c6935b 50%)"></button>
+      <button class="sw" data-acc="berry-gold" style="background:linear-gradient(135deg,#6b1d2f 50%, #c49b3c 50%)"></button>
+      <button class="sw" data-acc="forest-butter" style="background:linear-gradient(135deg,#2e4a35 50%, #d4a64a 50%)"></button>
+    </div>
+  </div>
+  <div class="tw">
+    <label>Display font</label>
+    <select id="tw-font">
+      <option value="DM Serif Display">DM Serif Display (current)</option>
+      <option value="Playfair Display">Playfair Display</option>
+      <option value="Cormorant Garamond">Cormorant Garamond</option>
+      <option value="Fraunces">Fraunces</option>
+    </select>
+  </div>
+  <div class="tw">
+    <label>Background</label>
+    <div class="swatches">
+      <button class="sw on" data-bg="paper" style="background:#fdfaf4"></button>
+      <button class="sw" data-bg="blush" style="background:#fce8e8"></button>
+      <button class="sw" data-bg="cream" style="background:#f3ead8"></button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Tweak defaults
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "berry-gold",
+    "displayFont": "Playfair Display",
+    "background": "paper"
+  }/*EDITMODE-END*/;
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger) {
+    burger.addEventListener('click', () => {
+      const on = !mobileMenu.classList.contains('on');
+      burger.classList.toggle('on', on);
+      mobileMenu.classList.toggle('on', on);
+      document.getElementById('menuScrim').classList.toggle('on', on);
+    });
+    const close = () => {
+      burger.classList.remove('on');
+      mobileMenu.classList.remove('on');
+      document.getElementById('menuScrim').classList.remove('on');
+    };
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.getElementById('menuScrim').addEventListener('click', close);
+  }
+
+  // Menu filtering
+  const cats = document.querySelectorAll('.cat');
+  const cards = document.querySelectorAll('#menuGrid .card');
+  cats.forEach(b => b.addEventListener('click', () => {
+    cats.forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    const v = b.dataset.cat;
+    cards.forEach(c => {
+      c.style.display = (v === 'all' || c.dataset.cat === v) ? '' : 'none';
+    });
+  }));
+
+  // Order CTAs on each card -> prefilled WhatsApp
+  cards.forEach(c => {
+    c.addEventListener('click', (e) => {
+      const name = c.querySelector('.name').textContent.trim();
+      const msg = encodeURIComponent(`Hi Tee, I'd like to order: ${name}`);
+      window.open(`https://wa.me/27678106965?text=${msg}`, '_blank');
+    });
+  });
+
+  // Form submit -> WhatsApp
+  function submitForm(e) {
+    e.preventDefault();
+    const f = e.target;
+    const d = Object.fromEntries(new FormData(f));
+    const text = `Hi Tee! I'd like to place an order.%0A%0A` +
+      `*Name:* ${d.name}%0A` +
+      `*Phone:* ${d.phone}%0A` +
+      (d.email ? `*Email:* ${d.email}%0A` : '') +
+      `*Item:* ${d.item}%0A` +
+      `*Needed by:* ${d.date}%0A` +
+      (d.notes ? `*Notes:* ${d.notes}%0A` : '');
+    const t = document.getElementById('toast');
+    t.classList.add('on');
+    setTimeout(() => t.classList.remove('on'), 3500);
+    setTimeout(() => window.open(`https://wa.me/27678106965?text=${text}`, '_blank'), 400);
+    f.reset();
+  }
+
+  // Min date = tomorrow (we need 24h)
+  const dateInput = document.querySelector('input[name=date]');
+  if (dateInput) {
+    const t = new Date(); t.setDate(t.getDate()+1);
+    dateInput.min = t.toISOString().slice(0,10);
+  }
+
+  // --- Tweaks protocol ---
+  const palettes = {
+    'navy-olive': {navy:'#1a1f4d','navy-ink':'#141837',olive:'#9a9646','olive-deep':'#7a7835',blush:'#fce8e8',cream:'#faf3e8','cream-warm':'#f3ead8'},
+    'choc-cream': {navy:'#3a2618','navy-ink':'#2a1a10',olive:'#c6935b','olive-deep':'#9e7040',blush:'#f5e6d3',cream:'#f8f0e1','cream-warm':'#efe0c4'},
+    'berry-gold': {navy:'#6b1d2f','navy-ink':'#4e1322',olive:'#c49b3c','olive-deep':'#9e7b26',blush:'#f8e5e2',cream:'#faf0e0','cream-warm':'#f0e0c0'},
+    'forest-butter': {navy:'#2e4a35',"navy-ink":'#1f3626',olive:'#d4a64a','olive-deep':'#a88534',blush:'#ece9d8',cream:'#f5efde',"cream-warm":'#ede1c0'},
+  };
+  const bgs = {paper:'#fdfaf4', blush:'#fce8e8', cream:'#f3ead8'};
+
+  function applyTweaks(t){
+    const p = palettes[t.accent] || palettes['navy-olive'];
+    const root = document.documentElement;
+    Object.entries(p).forEach(([k,v])=>root.style.setProperty('--'+k, v));
+    root.style.setProperty('--paper', bgs[t.background] || bgs.paper);
+    // Update display font
+    document.querySelectorAll('.serif, h1, h2, h3, h4, .name, .form-title, .faq-item summary, .story .sig').forEach(el=>{});
+    const style = document.getElementById('tw-font-style') || (()=>{
+      const s=document.createElement('style');s.id='tw-font-style';document.head.appendChild(s);return s;
+    })();
+    style.textContent = `h1, h2, h3, h4, .name, .form-title, .faq-item summary, .feature h3, .sec-head h2, .quote .t, .footer .lead { font-family: '${t.displayFont}', 'DM Serif Display', serif !important; }
+    @import url('https://fonts.googleapis.com/css2?family=${t.displayFont.replace(/ /g,'+')}:ital,wght@0,400;0,600;1,400&display=swap');`;
+    // highlight swatches
+    document.querySelectorAll('#tweaks [data-acc]').forEach(b=>b.classList.toggle('on', b.dataset.acc===t.accent));
+    document.querySelectorAll('#tweaks [data-bg]').forEach(b=>b.classList.toggle('on', b.dataset.bg===t.background));
+    const sel = document.getElementById('tw-font'); if(sel) sel.value = t.displayFont;
+  }
+  let currentTweaks = {...TWEAK_DEFAULTS};
+  applyTweaks(currentTweaks);
+
+  function setTweak(k,v){
+    currentTweaks = {...currentTweaks, [k]:v};
+    applyTweaks(currentTweaks);
+    try{ window.parent.postMessage({type:'__edit_mode_set_keys',edits:{[k]:v}},'*'); }catch(e){}
+  }
+  document.querySelectorAll('#tweaks [data-acc]').forEach(b=>b.onclick=()=>setTweak('accent',b.dataset.acc));
+  document.querySelectorAll('#tweaks [data-bg]').forEach(b=>b.onclick=()=>setTweak('background',b.dataset.bg));
+  document.getElementById('tw-font').onchange=(e)=>setTweak('displayFont',e.target.value);
+
+  // Listener BEFORE announcing availability
+  window.addEventListener('message', (e) => {
+    const m = e.data;
+    if (!m || !m.type) return;
+    if (m.type === '__activate_edit_mode')   document.getElementById('tweaks').classList.add('on');
+    if (m.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+  });
+  try{ window.parent.postMessage({type:'__edit_mode_available'},'*'); }catch(e){}
+</script>
+</Layout>

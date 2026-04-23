@@ -1,0 +1,12 @@
+{
+  // Cloudflare Worker configuration for serving the Astro SSG build
+  // as static assets via Workers Static Assets.
+  // https://developers.cloudflare.com/workers/static-assets/
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "tees-warm-delights",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
