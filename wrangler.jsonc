@@ -6,7 +6,8 @@
   "name": "cgcakes",
   "compatibility_date": "2025-01-01",
   "routes": [
-    { "pattern": "cgcakes.brightsync.co.za", "custom_domain": true }
+    { "pattern": "cgcakes.brightsync.co.za", "custom_domain": true },
+    { "pattern": "teeswarmdelights.brightsync.co.za", "custom_domain": true }
   ],
   "assets": {
     "directory": "./dist",
