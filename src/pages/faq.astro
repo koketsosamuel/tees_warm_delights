@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site, faqs, waBase } from '../data/site.js';
+---
+<Layout active="/faq" title={`FAQ — ${site.name}`} description="How to order a cake, lead times, sizes, delivery, deposits, and dietary questions for CG Cakes.">
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Good to know</span>
+    <h1>Things people often <em>ask.</em></h1>
+    <p>Everything you need to plan your order. Still stuck? A WhatsApp is the fastest way to reach us.</p>
+  </div>
+</header>
+
+<section style="padding-top:48px">
+  <div class="wrap">
+    <div class="faq-list" style="margin:0 auto">
+      {faqs.map((f, i) => (
+        <details class="faq-item" open={i === 0}>
+          <summary>{f.q}</summary>
+          <div class="a" set:html={f.a}></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <span class="eyebrow">Still have a question?</span>
+    <h2>Just <em>ask us.</em></h2>
+    <p>We reply on WhatsApp between {site.hours[0].h.replace('–','and')}, most days. No question too small.</p>
+    <div class="ctas">
+      <a class="btn btn-light btn-lg" href={waBase} target="_blank" rel="noopener"><Icon name="whatsapp" class="wa-ico" /> WhatsApp us</a>
+      <a class="btn btn-ghost btn-lg" href="/contact" style="color:var(--cream);border-color:rgba(250,243,232,.5)">Order form</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

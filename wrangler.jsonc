@@ -3,8 +3,11 @@
   // as static assets via Workers Static Assets.
   // https://developers.cloudflare.com/workers/static-assets/
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  "name": "tees-warm-delights",
+  "name": "cgcakes",
   "compatibility_date": "2025-01-01",
+  "routes": [
+    { "pattern": "cgcakes.brightsync.co.za", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"

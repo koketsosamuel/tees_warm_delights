@@ -1,0 +1,49 @@
+---
+import { site, nav, waBase, telLink } from '../data/site.js';
+import Icon from './Icon.astro';
+const year = new Date().getFullYear();
+const socials = [
+  { name: 'whatsapp',  href: waBase, label: 'WhatsApp', ext: true },
+  { name: 'phone',     href: telLink, label: 'Phone' },
+  { name: 'mail',      href: `mailto:${site.email}`, label: 'Email' },
+  { name: 'instagram', href: site.social.instagram.url, label: 'Instagram', ext: true },
+  { name: 'tiktok',    href: site.social.tiktok.url, label: 'TikTok', ext: true },
+  { name: 'facebook',  href: site.social.facebook.url, label: 'Facebook', ext: true },
+];
+---
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="fbrand brand">
+          <div class="mark"><img src="/img/logo.jpg" alt="" width="44" height="44"></div>
+          <div class="wm"><div class="s">CG</div><div class="d" style="color:var(--olive)">CAKES</div></div>
+        </div>
+        <p class="lead">"Every cake is layered from scratch — and baked the day you collect."</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </div>
+      <div>
+        <h5>Follow & order</h5>
+        <div class="footer-socials">
+          {socials.map((s) => (
+            <a href={s.href} aria-label={s.label} {...(s.ext ? { target: '_blank', rel: 'noopener' } : {})}>
+              <Icon name={s.name} />
+            </a>
+          ))}
+        </div>
+        <a href="/contact" class="footer-contact-link">Order a cake →</a>
+      </div>
+      <div>
+        <h5>Kitchen hours</h5>
+        {site.hours.map((row) => <a>{row.d} · {row.h}</a>)}
+      </div>
+    </div>
+    <div class="bot">
+      <div>© {year} {site.name} · {site.location}</div>
+      <div>Custom cakes & cupcakes · Made to order, made to celebrate</div>
+    </div>
+  </div>
+</footer>

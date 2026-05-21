@@ -1,0 +1,17 @@
+---
+import { waLink } from '../data/site.js';
+const { cake } = Astro.props;
+const order = waLink(`Hi, I'd like to order the ${cake.name}. Could you tell me about sizes and flavours?`);
+---
+<article class="card" data-cat={cake.cat}>
+  <div class="pic"><img src={cake.img} alt={cake.name} loading="lazy"></div>
+  <div class="body">
+    <span class="cat-tag">{cake.catLabel}</span>
+    <h3 class="name">{cake.name}</h3>
+    <p class="desc">{cake.desc}</p>
+    <div class="foot">
+      <span class="avail">Made to order</span>
+      <a class="order" href={order} target="_blank" rel="noopener">Enquire</a>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CakeCard from '../components/CakeCard.astro';
+import Icon from '../components/Icon.astro';
+import { cakes, cakeCats, site, waBase } from '../data/site.js';
+
+const count = (id) => id === 'all' ? cakes.length : cakes.filter(c => c.cat === id).length;
+---
+<Layout active="/menu" title={`Our Cakes — ${site.name}`} description="Celebration and birthday cakes, graduation and christening cakes, bento sets, and decorated cupcakes — all custom-made to order.">
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">The cake menu</span>
+    <h1>Every cake, <em>made to order.</em></h1>
+    <p>A starting point, not a limit. Mix flavours across layers, size it for your guests, and add your own theme — just say the word.</p>
+  </div>
+</header>
+
+<section class="menu" style="padding-top:48px">
+  <div class="wrap">
+    <div class="cats" role="tablist" aria-label="Cake categories">
+      {cakeCats.map((c, i) => (
+        <button class={`cat${i === 0 ? ' on' : ''}`} data-cat={c.id} role="tab" aria-selected={i === 0 ? 'true' : 'false'}>
+          {c.label} <span class="n">{count(c.id)}</span>
+        </button>
+      ))}
+    </div>
+
+    <div class="grid-menu" id="menuGrid">
+      {cakes.map((cake) => <CakeCard cake={cake} />)}
+    </div>
+
+    <p id="menuEmpty" style="display:none;text-align:center;color:var(--ink-soft);padding:40px 0">Nothing in this category yet — <a href={waBase} target="_blank" rel="noopener" style="color:var(--olive-deep);text-decoration:underline">ask us on WhatsApp</a>.</p>
+  </div>
+</section>
+
+<section class="cta-band" style="padding:72px 0">
+  <div class="wrap">
+    <span class="eyebrow">Don't see it?</span>
+    <h2>If you can picture it, <em>we can bake it.</em></h2>
+    <p>Custom flavours, dietary swaps, themed designs — send us the idea and we'll make it happen.</p>
+    <div class="ctas">
+      <a class="btn btn-light btn-lg" href={waBase} target="_blank" rel="noopener"><Icon name="whatsapp" class="wa-ico" /> Ask about a custom cake</a>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const cats = document.querySelectorAll('.cat');
+  const cards = document.querySelectorAll('#menuGrid .card');
+  const empty = document.getElementById('menuEmpty');
+  cats.forEach(b => b.addEventListener('click', () => {
+    cats.forEach(x => { x.classList.remove('on'); x.setAttribute('aria-selected','false'); });
+    b.classList.add('on'); b.setAttribute('aria-selected','true');
+    const v = b.dataset.cat;
+    let shown = 0;
+    cards.forEach(c => {
+      const match = (v === 'all' || c.dataset.cat === v);
+      c.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    empty.style.display = shown === 0 ? 'block' : 'none';
+  }));
+</script>
+
+</Layout>

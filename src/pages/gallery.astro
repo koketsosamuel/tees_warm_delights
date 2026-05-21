@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site, gallery, waBase } from '../data/site.js';
+const { instagram, tiktok } = site.social;
+---
+<Layout active="/gallery" title={`Cake Gallery — ${site.name}`} description="A look at recent cakes from CG Cakes — layer cakes, cupcakes, and custom designs.">
+
+<section class="gallery" style="padding-top:88px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">The cake board</span>
+        <h2>Looks good. <em>Tastes better.</em></h2>
+        <p>A peek at recent bakes. Follow along on Instagram <a href={instagram.url} target="_blank" rel="noopener" style="color:var(--olive);text-decoration:underline">{instagram.handle}</a> and TikTok <a href={tiktok.url} target="_blank" rel="noopener" style="color:var(--olive);text-decoration:underline">{tiktok.handle}</a> for new cakes, weekend specials, and behind-the-scenes.</p>
+      </div>
+    </div>
+    <div class="mosaic">
+      {gallery.map((src) => (
+        <div class="tile"><img src={src} alt="" loading="lazy"></div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" style="padding:72px 0">
+  <div class="wrap">
+    <span class="eyebrow">See one you love?</span>
+    <h2>We can make <em>yours.</em></h2>
+    <p>Send us a picture of any cake here — or your own inspiration — and we'll recreate it for your occasion.</p>
+    <div class="ctas">
+      <a class="btn btn-light btn-lg" href={waBase} target="_blank" rel="noopener"><Icon name="whatsapp" class="wa-ico" /> Send us your idea</a>
+      <a class="btn btn-ghost btn-lg" href="/menu" style="color:var(--cream);border-color:rgba(250,243,232,.5)">Browse the cakes</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

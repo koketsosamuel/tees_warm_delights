@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site, waBase, telLink } from '../data/site.js';
+const { instagram, tiktok, facebook } = site.social;
+---
+<Layout active="/contact" title={`Order a Cake — ${site.name}`} description="Order a custom cake or cupcakes from CG Cakes. WhatsApp, call, or send the order form — we reply the same day.">
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Place an order</span>
+    <h1>Let's bake <em>your cake.</em></h1>
+    <p>The more detail you give us, the better the quote. We'll confirm the design, size, and price before you pay a cent.</p>
+  </div>
+</header>
+
+<section class="contact" style="padding-top:56px">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Reach us</span>
+      <h2>Quickest is <em>WhatsApp.</em></h2>
+      <p class="lede">We reply between 8am and 6pm most days. For custom and celebration cakes, the order form gives us everything we need to quote properly.</p>
+
+      <div class="channels">
+        <a class="chan wa" href={waBase} target="_blank" rel="noopener">
+          <div class="ic"><Icon name="whatsapp" /></div>
+          <div><div class="k">WhatsApp</div><div class="v">{site.phonePretty}</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan call" href={telLink}>
+          <div class="ic"><Icon name="phone" /></div>
+          <div><div class="k">Call us</div><div class="v">{site.phonePretty}</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan" href={instagram.url} target="_blank" rel="noopener">
+          <div class="ic"><Icon name="instagram" /></div>
+          <div><div class="k">Instagram</div><div class="v">{instagram.handle}</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan" href={tiktok.url} target="_blank" rel="noopener">
+          <div class="ic"><Icon name="tiktok" /></div>
+          <div><div class="k">TikTok</div><div class="v">{tiktok.handle}</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan" href={`mailto:${site.email}`}>
+          <div class="ic"><Icon name="mail" /></div>
+          <div><div class="k">Email</div><div class="v">{site.email}</div></div>
+          <div class="arr">→</div>
+        </a>
+        <a class="chan" href={facebook.url} target="_blank" rel="noopener">
+          <div class="ic" style="background:#1877f2;color:#fff"><Icon name="facebook" /></div>
+          <div><div class="k">Facebook</div><div class="v">{facebook.handle}</div></div>
+          <div class="arr">→</div>
+        </a>
+      </div>
+
+      <div class="hours">
+        <div class="title">Kitchen hours</div>
+        {site.hours.map((row) => (<><div class="d">{row.d}</div><div class="h">{row.h}</div></>))}
+      </div>
+    </div>
+
+    <form id="order-form">
+      <h3 class="form-title">Tell us about your cake</h3>
+      <p class="form-sub">Flavour, size, date, and the occasion — plus anything else we should know. We'll come back with a quote and confirm before you pay.</p>
+
+      <div class="row">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" type="text" name="name" required placeholder="e.g. Aisha" />
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone / WhatsApp</label>
+          <input id="f-phone" type="tel" name="phone" required placeholder="067 000 0000" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Email (optional)</label>
+        <input id="f-email" type="email" name="email" placeholder="you@email.com" />
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="f-item">What would you like?</label>
+          <select id="f-item" name="item" required>
+            <option value="">Choose a cake…</option>
+            <option>Celebration / birthday cake</option>
+            <option>Custom / themed cake</option>
+            <option>Graduation cake</option>
+            <option>Christening / naming cake</option>
+            <option>Number / letter cake</option>
+            <option>Bento cake & cupcake set</option>
+            <option>Cupcakes</option>
+            <option>Not sure yet — help me choose</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-date">Needed by</label>
+          <input id="f-date" type="date" name="date" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="f-serves">Serves (approx.)</label>
+          <input id="f-serves" type="text" name="serves" placeholder="e.g. 20 people" />
+        </div>
+        <div class="field">
+          <label for="f-occasion">Occasion</label>
+          <input id="f-occasion" type="text" name="occasion" placeholder="e.g. 21st birthday" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-notes">Tell us more</label>
+        <textarea id="f-notes" name="notes" placeholder="Flavours, colours, theme, a reference picture you can send on WhatsApp, delivery suburb — anything we should know."></textarea>
+      </div>
+
+      <div class="submit">
+        <button type="submit" class="btn btn-primary btn-lg">Send request</button>
+        <small>Opens WhatsApp with your details ready to send. We reply within a few hours, Mon–Sat.</small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script define:vars={{ waBase }}>
+  // Min date = 3 days out (we need 48–72h notice)
+  const dateInput = document.querySelector('input[name=date]');
+  if (dateInput) {
+    const t = new Date(); t.setDate(t.getDate() + 3);
+    dateInput.min = t.toISOString().slice(0, 10);
+  }
+
+  const form = document.getElementById('order-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form));
+    const text =
+      `Hi! I'd like to order a cake.\n\n` +
+      `*Name:* ${d.name}\n` +
+      `*Phone:* ${d.phone}\n` +
+      (d.email ? `*Email:* ${d.email}\n` : '') +
+      `*Cake:* ${d.item}\n` +
+      `*Needed by:* ${d.date}\n` +
+      (d.serves ? `*Serves:* ${d.serves}\n` : '') +
+      (d.occasion ? `*Occasion:* ${d.occasion}\n` : '') +
+      (d.notes ? `*Notes:* ${d.notes}\n` : '');
+    const toast = document.getElementById('toast');
+    toast.classList.add('on');
+    setTimeout(() => toast.classList.remove('on'), 3500);
+    setTimeout(() => window.open(`${waBase}?text=${encodeURIComponent(text)}`, '_blank'), 400);
+    form.reset();
+  });
+</script>
+
+</Layout>

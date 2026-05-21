@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { site, waBase } from '../data/site.js';
+
+const values = [
+  { n: "01", h: "Layered from scratch", p: "No mixes, no shortcuts. Every sponge, frosting, and filling is made by hand in our kitchen." },
+  { n: "02", h: "Baked to order", p: "We bake the day before you collect — your cake is never sitting on a shelf waiting." },
+  { n: "03", h: "Designed with you", p: "Your colours, theme, and flavours. We design each cake around the moment it's for." },
+  { n: "04", h: "Halaal-friendly", p: "All our ingredients are halaal-friendly, and we'll always flag allergens up front." },
+];
+---
+<Layout active="/about" title={`Our Story — ${site.name}`} description="CG Cakes is a small custom-cake studio — every cake layered from scratch and baked to order.">
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">Our story</span>
+    <h1>A small kitchen with <em>big celebrations.</em></h1>
+    <p>Cakes for birthdays, weddings, and the everyday moments worth marking — made one order at a time.</p>
+  </div>
+</header>
+
+<section class="story" style="padding-top:64px">
+  <div class="wrap grid">
+    <div class="imgwrap"><img src="/img/cake-christening.jpg" alt="A pastel CG Cakes christening cake" width="600" height="750"></div>
+    <div>
+      <span class="eyebrow">How it started</span>
+      <h2>It began with <em>one more slice.</em></h2>
+      <p>CG Cakes started the way most good things do — at home, at the kitchen table, with flour on the counter and someone asking for "just one more". What began as cakes for family birthdays became cakes for the whole street, then the whole community.</p>
+      <p>Today we focus on what we love most: custom cakes. Buttercream celebration cakes, graduation and christening cakes, bento sets, cupcakes by the dozen, and one-of-a-kind designs for the days that matter. Every one is baked the day before you collect — so it arrives at its very best.</p>
+      <p class="sig">— {site.owner}<small>Owner & head baker</small></p>
+      <div class="badges">
+        <span class="badge"><span class="d"></span> Custom cake studio</span>
+        <span class="badge"><span class="d"></span> Made to order</span>
+        <span class="badge"><span class="d"></span> Halaal-friendly ingredients</span>
+        <span class="badge"><span class="d"></span> Baked fresh, never frozen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lt">
+        <span class="eyebrow">What we promise</span>
+        <h2>The way we <em>bake.</em></h2>
+      </div>
+    </div>
+    <div class="values">
+      {values.map((v) => (
+        <div class="value">
+          <div class="n">{v.n}</div>
+          <h4>{v.h}</h4>
+          <p>{v.p}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <span class="eyebrow">Let's make something</span>
+    <h2>Got an occasion <em>coming up?</em></h2>
+    <p>We'd love to bake for it. Tell us the date and what you're celebrating, and we'll take it from there.</p>
+    <div class="ctas">
+      <a class="btn btn-light btn-lg" href={waBase} target="_blank" rel="noopener"><Icon name="whatsapp" class="wa-ico" /> Chat to us</a>
+      <a class="btn btn-ghost btn-lg" href="/menu" style="color:var(--cream);border-color:rgba(250,243,232,.5)">Browse the cakes</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

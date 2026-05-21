@@ -1,26 +1,43 @@
 ---
-// Site layout
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import FloatWa from '../components/FloatWa.astro';
+import { site } from '../data/site.js';
+
+const {
+  title = `${site.name} — ${site.tagline}`,
+  description = "Custom cakes, cupcakes, and celebration cakes baked to order. Layered from scratch and baked the day you collect.",
+  active = '',
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Tee's Warm Delights — Freshly baked, made with love</title>
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/img/cake-floral-pink.jpg" />
+<meta name="theme-color" content="#1a1f4d" />
+<link rel="icon" href="/img/logo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style is:global>
   :root{
-    --navy:#1a1f4d;
-    --navy-ink:#141837;
-    --olive:#9a9646;
-    --olive-deep:#7a7835;
-    --blush:#fce8e8;
-    --blush-deep:#f6d8d8;
-    --cream:#faf3e8;
-    --cream-warm:#f3ead8;
-    --paper:#fdfaf4;
+    /* Soft-pink scheme (default). The edit-mode palette below mirrors these. */
+    --navy:#8a2f54;
+    --navy-ink:#6d2241;
+    --olive:#d98aa6;
+    --olive-deep:#a8496e;
+    --blush:#fce1e9;
+    --blush-deep:#f8d2dd;
+    --cream:#fdf0f4;
+    --cream-warm:#f8e0e8;
+    --paper:#fdf5f8;
     --ink:#2a1810;
     --ink-soft:#574a3f;
     --line:rgba(26,31,77,.14);
@@ -70,13 +87,14 @@
   .mobile-menu{position:fixed;right:14px;top:66px;transform:translateY(-12px) scale(.96);transform-origin:top right;z-index:55;width:min(88vw,320px);background:rgba(253,250,244,.96);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px rgba(26,31,77,.22),0 4px 14px rgba(26,31,77,.08);padding:10px;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.9,.25,1.1);display:flex;flex-direction:column;gap:2px}
   .mobile-menu.on{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
   .mobile-menu > a{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-radius:10px;font-family:'Inter',system-ui,sans-serif;font-size:14px;font-weight:500;color:var(--navy);transition:background .15s}
-  .mobile-menu > a:hover,.mobile-menu > a:active{background:var(--cream-warm)}
+  .mobile-menu > a:hover,.mobile-menu > a:active,.mobile-menu > a.is-active{background:var(--cream-warm)}
   .mobile-menu > a::after{content:"→";font-family:'Inter',sans-serif;font-size:12px;color:var(--olive);opacity:.55}
   .mobile-menu .sep{height:1px;background:var(--line-soft);margin:6px 10px}
   .mobile-menu .ctas{display:flex;gap:8px;padding:4px 4px 2px}
   .mobile-menu .ctas .btn{flex:1;padding:10px 12px;font-size:12px;justify-content:center;gap:6px}
   .mobile-menu .ctas .btn-primary{color:#fff}
   .mobile-menu .ctas .btn-ghost{color:var(--navy)}
+  .mobile-menu .ctas .btn::after{content:none}
   .mobile-menu::after{content:"";position:absolute;right:18px;top:-7px;width:12px;height:12px;background:inherit;border-left:1px solid var(--line);border-top:1px solid var(--line);transform:rotate(45deg);border-radius:3px 0 0 0}
   .menu-scrim{position:fixed;inset:0;background:rgba(20,24,55,.22);backdrop-filter:blur(2px);z-index:54;opacity:0;pointer-events:none;transition:opacity .2s}
   .menu-scrim.on{opacity:1;pointer-events:auto}
@@ -88,9 +106,9 @@
   .brand .wm .d{font-size:10px;letter-spacing:.32em;color:var(--olive-deep);font-weight:600}
   nav .links{display:flex;gap:28px;align-items:center}
   nav .links a{font-size:14px;color:var(--navy-ink);font-weight:500;position:relative;padding:6px 2px;transition:color .2s}
-  nav .links a:hover{color:var(--olive-deep)}
+  nav .links a:hover,nav .links a.is-active{color:var(--olive-deep)}
   nav .links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--olive);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
-  nav .links a:hover::after{transform:scaleX(1)}
+  nav .links a:hover::after,nav .links a.is-active::after{transform:scaleX(1)}
   nav .cta-pair{display:flex;gap:10px}
   .btn{
     display:inline-flex;align-items:center;gap:8px;
@@ -104,10 +122,12 @@
   .btn-ghost:hover{background:var(--navy);color:#fff}
   .btn-olive{background:var(--olive);color:#fff}
   .btn-olive:hover{background:var(--olive-deep);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+  .btn-light{background:#fff;color:var(--navy)}
+  .btn-light:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
   .btn-lg{padding:15px 26px;font-size:14px}
   .wa-ico{width:14px;height:14px;flex:none}
 
-  /* HERO */
+  /* HERO (home) */
   .hero{position:relative;padding:56px 0 88px;overflow:hidden}
   .hero::before{
     content:"";position:absolute;inset:0;
@@ -140,9 +160,7 @@
   .hero .stack .b{right:0;top:0;width:52%;aspect-ratio:1/1.15;z-index:2;transform:rotate(2.5deg)}
   .hero .stack .c{right:8%;bottom:0;width:46%;aspect-ratio:1/1;z-index:4;transform:rotate(-3deg)}
   .hero .stack img{width:100%;height:100%;object-fit:cover}
-  .hero .stack .a:hover{transform:rotate(0deg) scale(1.02);z-index:5}
-  .hero .stack .b:hover{transform:rotate(0deg) scale(1.02);z-index:5}
-  .hero .stack .c:hover{transform:rotate(0deg) scale(1.02);z-index:5}
+  .hero .stack .a:hover,.hero .stack .b:hover,.hero .stack .c:hover{transform:rotate(0deg) scale(1.02);z-index:5}
   .hero .stamp{
     position:absolute;right:-6%;top:38%;width:130px;height:130px;
     border-radius:50%;background:var(--navy);color:var(--cream);
@@ -154,6 +172,19 @@
   @keyframes spin{to{transform:rotate(360deg)}}
   .hero .stamp .ctr{position:absolute;inset:0;display:grid;place-items:center;animation:spin 22s linear infinite reverse}
   .hero .stamp .ctr span{font-family:'Dancing Script',cursive;font-size:26px;color:var(--olive);font-weight:600;line-height:1}
+
+  /* PAGE HERO (inner pages) */
+  .page-hero{position:relative;padding:72px 0 64px;overflow:hidden;text-align:center}
+  .page-hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(ellipse at 80% 0%, var(--blush) 0%, transparent 55%),
+      radial-gradient(ellipse at 10% 100%, var(--cream-warm) 0%, transparent 60%),
+      var(--paper);
+  }
+  .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(40px,5.4vw,72px);color:var(--navy);line-height:1.04;margin-top:14px}
+  .page-hero h1 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive-deep)}
+  .page-hero p{color:var(--ink-soft);font-size:18px;line-height:1.6;max-width:56ch;margin:18px auto 0}
 
   /* Ticker */
   .ticker{background:var(--navy);color:var(--cream);padding:18px 0;overflow:hidden;border-top:1px solid var(--olive);border-bottom:1px solid var(--olive)}
@@ -185,6 +216,13 @@
   .badge{padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13px;color:var(--navy);font-weight:500;display:inline-flex;align-items:center;gap:8px}
   .badge .d{width:6px;height:6px;border-radius:50%;background:var(--olive)}
 
+  /* VALUES grid (about) */
+  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px}
+  .value{background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow-sm)}
+  .value .n{font-family:'DM Serif Display',serif;font-size:34px;color:var(--olive);line-height:1}
+  .value h4{font-family:'DM Serif Display',serif;font-size:21px;color:var(--navy);margin:14px 0 8px}
+  .value p{font-size:14px;color:var(--ink-soft);line-height:1.6}
+
   /* MENU */
   .menu .cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--line-soft)}
   .cat{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:500;color:var(--navy);transition:all .2s;letter-spacing:.02em}
@@ -192,7 +230,7 @@
   .cat.on{background:var(--navy);color:#fff;border-color:var(--navy)}
   .cat .n{opacity:.6;margin-left:6px;font-size:11px}
   .grid-menu{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
-  .card{background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column;cursor:pointer}
+  .card{background:#fff;border:1px solid var(--line-soft);border-radius:var(--radius);overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column}
   .card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:var(--line)}
   .card .pic{aspect-ratio:4/5;overflow:hidden;background:var(--cream)}
   .card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
@@ -244,15 +282,23 @@
   .love{background:var(--blush)}
   .love-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   .quote{background:#fff;padding:32px 32px 28px;border-radius:var(--radius);position:relative;box-shadow:var(--shadow-sm)}
-  .quote::before{content:"“";position:absolute;top:4px;left:20px;font-family:'DM Serif Display',serif;font-size:88px;color:var(--olive);line-height:1;opacity:.25}
+  .quote::before{content:"\201C";position:absolute;top:4px;left:20px;font-family:'DM Serif Display',serif;font-size:88px;color:var(--olive);line-height:1;opacity:.25}
   .quote .t{font-family:'DM Serif Display',serif;font-style:italic;font-size:19px;color:var(--navy);line-height:1.45;position:relative;z-index:1}
   .quote .by{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft)}
   .quote .av{width:40px;height:40px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-family:'DM Serif Display',serif;color:var(--navy);font-size:17px}
   .quote .nm{font-size:13px;font-weight:600;color:var(--navy)}
   .quote .lo{font-size:11px;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
 
+  /* CTA band */
+  .cta-band{background:var(--navy);color:var(--cream);text-align:center;padding:88px 0}
+  .cta-band h2{font-family:'DM Serif Display',serif;font-size:clamp(34px,4vw,52px);color:var(--cream);line-height:1.08}
+  .cta-band h2 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive)}
+  .cta-band p{color:rgba(250,243,232,.78);font-size:17px;max-width:48ch;margin:18px auto 30px;line-height:1.6}
+  .cta-band .eyebrow{color:var(--olive)}
+  .cta-band .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
   /* FAQ */
-  .faq-list{border-top:1px solid var(--line-soft)}
+  .faq-list{border-top:1px solid var(--line-soft);max-width:880px}
   .faq-item{border-bottom:1px solid var(--line-soft)}
   .faq-item summary{list-style:none;padding:28px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;font-family:'DM Serif Display',serif;font-size:22px;color:var(--navy);transition:color .2s}
   .faq-item summary::-webkit-details-marker{display:none}
@@ -262,7 +308,7 @@
   .faq-item .a{padding:0 60px 28px 0;color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:72ch}
 
   /* CONTACT */
-  .contact{background:var(--cream);padding:110px 0}
+  .contact{background:var(--cream);padding:96px 0}
   .contact .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px}
   .contact h2{font-size:clamp(40px,4.6vw,62px);color:var(--navy)}
   .contact h2 em{font-family:'Dancing Script',cursive;font-style:normal;color:var(--olive-deep)}
@@ -337,6 +383,7 @@
   @media (max-width:1000px){
     .hero .grid,.story .grid,.feature .grid,.contact .grid{grid-template-columns:1fr;gap:48px}
     .grid-menu{grid-template-columns:repeat(2,1fr)}
+    .values{grid-template-columns:repeat(2,1fr)}
     .how .steps{grid-template-columns:repeat(2,1fr);}
     .step{border-right:none;border-bottom:1px solid var(--line-soft);padding:32px 0}
     .step:last-child{border-bottom:none}
@@ -358,6 +405,7 @@
   @media (max-width:640px){
     .wrap{padding:0 18px}
     .grid-menu{grid-template-columns:1fr;gap:20px}
+    .values{grid-template-columns:1fr}
     .hours{grid-template-columns:1fr 1fr;padding:18px 18px}
     form{padding:24px 18px}
     form .row{grid-template-columns:1fr;gap:0}
@@ -372,6 +420,7 @@
     .hero .stack{aspect-ratio:1/1.15}
     .hero .stamp{width:84px;height:84px;top:48%}
     .hero .stamp .ctr span{font-size:17px}
+    .page-hero{padding:48px 0 44px}
     .sec-head{margin-bottom:32px}
     .sec-head h2{font-size:34px}
     .story .imgwrap{aspect-ratio:4/4.5}
@@ -414,6 +463,116 @@
 </style>
 </head>
 <body>
-<slot />
+<Nav active={active} />
+<main>
+  <slot />
+</main>
+<Footer />
+<FloatWa />
+
+<div id="toast">Thanks! We'll WhatsApp you back shortly.</div>
+
+<!-- TWEAKS (builder edit-mode controls) -->
+<div id="tweaks">
+  <h6>Tweaks <button onclick="document.getElementById('tweaks').classList.remove('on')" style="color:var(--ink-soft)">×</button></h6>
+  <div class="tw">
+    <label>Accent palette</label>
+    <div class="swatches">
+      <button class="sw on" data-acc="blush-rose" style="background:linear-gradient(135deg,#8a2f54 50%, #d98aa6 50%)"></button>
+      <button class="sw" data-acc="navy-olive" style="background:linear-gradient(135deg,#1a1f4d 50%, #9a9646 50%)"></button>
+      <button class="sw" data-acc="choc-cream" style="background:linear-gradient(135deg,#3a2618 50%, #c6935b 50%)"></button>
+      <button class="sw" data-acc="berry-gold" style="background:linear-gradient(135deg,#6b1d2f 50%, #c49b3c 50%)"></button>
+      <button class="sw" data-acc="forest-butter" style="background:linear-gradient(135deg,#2e4a35 50%, #d4a64a 50%)"></button>
+    </div>
+  </div>
+  <div class="tw">
+    <label>Display font</label>
+    <select id="tw-font">
+      <option value="DM Serif Display">DM Serif Display</option>
+      <option value="Playfair Display">Playfair Display</option>
+      <option value="Cormorant Garamond">Cormorant Garamond</option>
+      <option value="Fraunces">Fraunces</option>
+    </select>
+  </div>
+  <div class="tw">
+    <label>Background</label>
+    <div class="swatches">
+      <button class="sw on" data-bg="rose" style="background:#fdf5f8"></button>
+      <button class="sw" data-bg="paper" style="background:#fdfaf4"></button>
+      <button class="sw" data-bg="blush" style="background:#fce4ea"></button>
+      <button class="sw" data-bg="cream" style="background:#f3ead8"></button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Mobile menu (shared across pages)
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const scrim = document.getElementById('menuScrim');
+  if (burger && mobileMenu && scrim) {
+    const setOpen = (on) => {
+      burger.classList.toggle('on', on);
+      burger.setAttribute('aria-expanded', String(on));
+      mobileMenu.classList.toggle('on', on);
+      scrim.classList.toggle('on', on);
+    };
+    burger.addEventListener('click', () => setOpen(!mobileMenu.classList.contains('on')));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    scrim.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  }
+
+  // --- Tweaks / edit-mode protocol ---
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "blush-rose",
+    "displayFont": "Playfair Display",
+    "background": "rose"
+  }/*EDITMODE-END*/;
+
+  const palettes = {
+    'blush-rose': {navy:'#8a2f54','navy-ink':'#6d2241',olive:'#d98aa6','olive-deep':'#a8496e',blush:'#fce1e9',cream:'#fdf0f4','cream-warm':'#f8e0e8'},
+    'navy-olive': {navy:'#1a1f4d','navy-ink':'#141837',olive:'#9a9646','olive-deep':'#7a7835',blush:'#fce8e8',cream:'#faf3e8','cream-warm':'#f3ead8'},
+    'choc-cream': {navy:'#3a2618','navy-ink':'#2a1a10',olive:'#c6935b','olive-deep':'#9e7040',blush:'#f5e6d3',cream:'#f8f0e1','cream-warm':'#efe0c4'},
+    'berry-gold': {navy:'#6b1d2f','navy-ink':'#4e1322',olive:'#c49b3c','olive-deep':'#9e7b26',blush:'#f8e5e2',cream:'#faf0e0','cream-warm':'#f0e0c0'},
+    'forest-butter': {navy:'#2e4a35',"navy-ink":'#1f3626',olive:'#d4a64a','olive-deep':'#a88534',blush:'#ece9d8',cream:'#f5efde',"cream-warm":'#ede1c0'},
+  };
+  const bgs = {rose:'#fdf5f8', paper:'#fdfaf4', blush:'#fce4ea', cream:'#f3ead8'};
+
+  function applyTweaks(t){
+    const p = palettes[t.accent] || palettes['navy-olive'];
+    const root = document.documentElement;
+    Object.entries(p).forEach(([k,v])=>root.style.setProperty('--'+k, v));
+    root.style.setProperty('--paper', bgs[t.background] || bgs.paper);
+    const style = document.getElementById('tw-font-style') || (()=>{
+      const s=document.createElement('style');s.id='tw-font-style';document.head.appendChild(s);return s;
+    })();
+    style.textContent = `h1, h2, h3, h4, .name, .form-title, .faq-item summary, .feature h3, .sec-head h2, .quote .t, footer .lead, .page-hero h1, .value h4, .step h4, .chan .v { font-family: '${t.displayFont}', 'DM Serif Display', serif !important; }
+    @import url('https://fonts.googleapis.com/css2?family=${t.displayFont.replace(/ /g,'+')}:ital,wght@0,400;0,600;1,400&display=swap');`;
+    document.querySelectorAll('#tweaks [data-acc]').forEach(b=>b.classList.toggle('on', b.dataset.acc===t.accent));
+    document.querySelectorAll('#tweaks [data-bg]').forEach(b=>b.classList.toggle('on', b.dataset.bg===t.background));
+    const sel = document.getElementById('tw-font'); if(sel) sel.value = t.displayFont;
+  }
+  let currentTweaks = {...TWEAK_DEFAULTS};
+  applyTweaks(currentTweaks);
+
+  function setTweak(k,v){
+    currentTweaks = {...currentTweaks, [k]:v};
+    applyTweaks(currentTweaks);
+    try{ window.parent.postMessage({type:'__edit_mode_set_keys',edits:{[k]:v}},'*'); }catch(e){}
+  }
+  document.querySelectorAll('#tweaks [data-acc]').forEach(b=>b.onclick=()=>setTweak('accent',b.dataset.acc));
+  document.querySelectorAll('#tweaks [data-bg]').forEach(b=>b.onclick=()=>setTweak('background',b.dataset.bg));
+  const fontSel = document.getElementById('tw-font');
+  if (fontSel) fontSel.onchange=(e)=>setTweak('displayFont',e.target.value);
+
+  window.addEventListener('message', (e) => {
+    const m = e.data;
+    if (!m || !m.type) return;
+    if (m.type === '__activate_edit_mode')   document.getElementById('tweaks').classList.add('on');
+    if (m.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+  });
+  try{ window.parent.postMessage({type:'__edit_mode_available'},'*'); }catch(e){}
+</script>
 </body>
 </html>
